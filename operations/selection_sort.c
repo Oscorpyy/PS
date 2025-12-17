@@ -6,13 +6,13 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 15:03:28 by opernod           #+#    #+#             */
-/*   Updated: 2025/12/17 14:25:27 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2025/12/17 15:34:08 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
 
-static int push_min(t_stack *stack, int min, int bool, int total)
+static int	push_min(t_stack *stack, int min, int bool, int total)
 {
 	if (bool == 1)
 	{
@@ -35,7 +35,7 @@ static int push_min(t_stack *stack, int min, int bool, int total)
 	return (total);
 }
 
-static int where_min(t_stack *stack, int total)
+static int	where_min(t_stack *stack, int total)
 {
 	int	min;
 	int	i;
@@ -63,7 +63,7 @@ static int where_min(t_stack *stack, int total)
 
 int	selection_sort(t_stack *stack)
 {
-	int total;
+	int	total;
 
 	total = 0;
 	while (stack->len_a > 0)

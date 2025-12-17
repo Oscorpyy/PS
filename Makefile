@@ -5,32 +5,54 @@
 #                                                     +:+ +:+         +:+      #
 #    By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/12/11 17:18:42 by opernod           #+#    #+#              #
-#    Updated: 2025/12/16 12:00:00 by opernod          ###   ########lyon.fr    #
+#    Created: 2025/12/17 15:35:41 by opernod           #+#    #+#              #
+#    Updated: 2025/12/17 15:40:02 by opernod          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
-FLAGS = -Wall -Wextra -Werror
-INCLUDES = -I includes 
-DIR = sources
-SRCS = $(DIR)/ft_printf.c $(DIR)/ft_putall.c
-OBJS = $(SRCS:.c=.o)
+NAME		= push_swap
 
-all : $(NAME)
+CC			= cc
+CFLAGS		= -Wall -Wextra -Werror -I includes -I libft
 
-$(NAME): $(OBJS)
-	ar -rcs $@ $^
+LIBFT_DIR	= libft
+LIBFT		= $(LIBFT_DIR)/libft.a
 
-$(DIR)/%.o : $(DIR)/%.c includes/ft_printf.h Makefile
-	cc $(FLAGS) $(INCLUDES) -c  $< -o $@
+SRC_DIR		= sources
+OP_DIR		= operations
+
+OP_FILES	= disorder.c \
+			  get_agrs.c \
+			  pa.c pb.c \
+			  ra.c rb.c rr.c \
+			  rra.c rrb.c rrr.c \
+			  sa.c sb.c ss.c \
+			  selection_sort.c
+
+SRCS		= $(SRC_DIR)/main.c \
+			  $(addprefix $(OP_DIR)/, $(OP_FILES))
+
+OBJS		= $(SRCS:.c=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+
+$(LIBFT):
+	$(MAKE) -C $(LIBFT_DIR)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	$(RM) $(OBJS)
+	$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
+	$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
-.PHONY : all clean fclean re
+.PHONY: all clean fclean re
