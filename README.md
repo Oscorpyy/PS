@@ -22,7 +22,6 @@ A benchmark mode is also provided.
 A bonus checker program can validate whether a sequence of operations actually sorts the stack.
 
 Instructions
-Compilation
 
 make
 make bonus
