@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:26:53 by opernod           #+#    #+#             */
-/*   Updated: 2025/12/17 15:01:41 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2025/12/17 15:45:21 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(void)
 	i = 0;
 	
 	disorder_per = disorder(stack);
-	total = selection_sort(stack);
+ 	total = selection_sort(stack);
 	while (i != stack->len_a)
 	{
 		printf("stack_a[%i] = %i \n", i, stack->stack_a[i]);
