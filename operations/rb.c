@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:19:30 by opernod           #+#    #+#             */
-/*   Updated: 2025/12/16 16:26:57 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2025/12/17 12:06:32 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	rotate_b(t_stack *stack)
 	int	i;
 	int	temp;
 
-	if (stack->stack_b[0] == stack->len_b)
+	if (stack->stack_b == NULL || stack->len_b < 2)
 		return ;
 	i = 0;
 	temp = stack->stack_b[0];
