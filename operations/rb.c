@@ -6,25 +6,25 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:19:30 by opernod           #+#    #+#             */
-/*   Updated: 2025/12/16 13:29:39 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2025/12/16 16:26:57 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
 
-void	rotate_b(int *stack_b, int len_b)
+void	rotate_b(t_stack *stack)
 {
 	int	i;
 	int	temp;
 
-	if (stack_b[0] == len_b)
+	if (stack->stack_b[0] == stack->len_b)
 		return ;
 	i = 0;
-	temp = stack_b[0];
-	while (i + 1 != len_b)
+	temp = stack->stack_b[0];
+	while (i + 1 != stack->len_b)
 	{
-		stack_b[i] = stack_b[i + 1];
+		stack->stack_b[i] = stack->stack_b[i + 1];
 		i++;
 	}
-	stack_b[i] = temp;
+	stack->stack_b[i] = temp;
 }

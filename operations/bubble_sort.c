@@ -1,30 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rrb.c                                              :+:      :+:    :+:   */
+/*   bubble_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 12:22:00 by opernod           #+#    #+#             */
-/*   Updated: 2025/12/16 16:27:47 by opernod          ###   ########lyon.fr   */
+/*   Created: 2025/12/16 15:03:28 by opernod           #+#    #+#             */
+/*   Updated: 2025/12/16 19:20:36 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
+// #include "../printf/includes/ft_printf.h"
 
-void	reverse_rotate_b(t_stack *stack)
+void	ft_bubble_sort(t_stack *stack)
 {
-	int	i;
-	int	temp;
+	int	total;
 
-	if (stack->stack_b == NULL || stack->len_b < 2)
-		return ;
-	i = stack->len_b - 1;
-	temp = stack->stack_b[i];
-	while (i > 0)
+	total = 0;
+	while (disorder(stack) > 0)
 	{
-		stack->stack_b[i] = stack->stack_b[i - 1];
-		i--;
+		while(stack->len_a > 0)
+		{
+			if (stack->stack_a[0] > stack->stack_a[1])
+			{
+				swap_a(stack);
+				printf("sa\n");
+				total++;
+			}
+			push_b(stack);
+			printf("pb\n");
+			total++;
+		}
+		while (stack->len_b > 0)
+		{
+			push_a(stack);
+			printf("pa\n");
+			total++;
+		}
 	}
-	stack->stack_b[0] = temp;
+	printf("\n %i \n", total);
 }
+

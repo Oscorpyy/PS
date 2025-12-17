@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 10:46:37 by lgoderne          #+#    #+#             */
-/*   Updated: 2025/12/16 13:56:36 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2025/12/16 19:15:54 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,33 @@
 # define PS_H
 
 #include <stdio.h>
+#include <stdlib.h>
 
-void	swap_a(int *stack_a, int len_a);
-void	swap_b(int *stack_b, int len_b);
-void	swap_s(int *stack_a, int *stack_b, int len_a, int len_b);
-void	push_a(int *stack_a, int *stack_b, int len_a, int len_b);
-void	push_b(int *stack_a, int *stack_b, int len_a, int len_b);
-void	rotate_a(int *stack_a, int len_a);
-void	rotate_b(int *stack_b, int len_b);
-void	rotate_r(int *stack_a, int *stack_b, int len_a, int len_b);
-void	reverse_rotate_a(int *stack_a, int len_a);
-void	reverse_rotate_b(int *stack_b, int len_b);
-void	reverse_rotate_r(int *stack_a, int *stack_b, int len_a, int len_b);
+typedef struct s_stack
+{
+	int	*stack_a;
+	int	*stack_b;
+	int	len_a;
+	int	len_b;
+}	t_stack;
+
+
+void	swap_a(t_stack *stack);
+void	swap_b(t_stack *stack);
+void	swap_s(t_stack *stack);
+void	push_a(t_stack *stack);
+void	push_b(t_stack *stack);
+void	rotate_a(t_stack *stack);
+void	rotate_b(t_stack *stack);
+void	rotate_r(t_stack *stack);
+void	reverse_rotate_a(t_stack *stack);
+void	reverse_rotate_b(t_stack *stack);
+void	reverse_rotate_r(t_stack *stack);
+float	disorder(t_stack *stack);
+void	ft_bubble_sort(t_stack *stack);
+void	bubble_sort_push_swap(t_stack *stack);
+int		get_index(t_stack *stack, int value, int len);
+int		get_chunk_size(int size);
+void	push_all_back(t_stack *stack, int *total);
 
 #endif
