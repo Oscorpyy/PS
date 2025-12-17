@@ -134,3 +134,6 @@ Other resources used: (!!list your resources!!)
 Use of AI
 
 !!Explain how you used AI (doc help, idea organization, etc.), while confirming that all code is understood and validated by you.!!
+
+<img width="1281" height="1254" alt="Screenshot from 2025-12-17 15-59-49" src="https://github.com/user-attachments/assets/162b8d2b-f4ba-436a-8310-4063a0d75fc3" />
+
