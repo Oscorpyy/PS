@@ -6,17 +6,17 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 10:46:37 by lgoderne          #+#    #+#             */
-/*   Updated: 2025/12/17 14:16:05 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2025/12/17 15:41:47 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PS_H
 # define PS_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <fcntl.h>
+# include <unistd.h>
 
 typedef struct s_stack
 {
