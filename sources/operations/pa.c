@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:08:30 by opernod           #+#    #+#             */
-/*   Updated: 2025/12/16 16:24:00 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2025/12/17 17:59:24 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,5 @@ void	push_a(t_stack *stack)
 	}
 	stack->len_a++;
 	stack->len_b--;
+	printf("pa\n");
 }

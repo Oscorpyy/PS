@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 15:03:28 by opernod           #+#    #+#             */
-/*   Updated: 2025/12/17 15:43:58 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2025/12/17 18:11:28 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static int	push_min(t_stack *stack, int min, int bool, int total)
 		while (min != stack->stack_a[0])
 		{
 			rotate_a(stack);
-			printf("rb\n");
 			total++;
 		}
 	}
@@ -28,7 +27,6 @@ static int	push_min(t_stack *stack, int min, int bool, int total)
 		while (min != stack->stack_a[0])
 		{
 			reverse_rotate_a(stack);
-			printf("rrb\n");
 			total++;
 		}
 	}
@@ -56,7 +54,6 @@ static int	where_min(t_stack *stack, int total)
 	else
 		total = push_min(stack, min, 2, total);
 	push_b(stack);
-	printf("pb\n");
 	total++;
 	return (total);
 }
@@ -71,7 +68,6 @@ int	selection_sort(t_stack *stack)
 	while (stack->len_b > 0)
 	{
 		push_a(stack);
-		printf("pa\n");
 		total++;
 	}
 	return (total);
