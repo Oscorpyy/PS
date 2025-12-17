@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:26:53 by opernod           #+#    #+#             */
-/*   Updated: 2025/12/17 14:49:18 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2025/12/17 15:01:41 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	main(void)
 	int		i;
 	int		total;
 	float	disorder_per;
+
 	t_stack *stack = malloc(sizeof(t_stack));
 	stack_a = read_file_to_array("args.txt", &size);
 	stack->stack_a = stack_a;
