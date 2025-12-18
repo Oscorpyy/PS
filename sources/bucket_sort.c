@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 16:27:04 by lgoderne          #+#    #+#             */
-/*   Updated: 2025/12/17 19:01:50 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2025/12/18 14:55:48 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	ft_sqrt(int nb)
 	return (0);
 }
 
-int	bucket_sort_simple(t_stack stack)
+int	bucket_sort_simple(t_stack *stack)
 {
 	int	num_buckets = ft_sqrt(stack.len_a);
 
