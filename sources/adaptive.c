@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 15:46:46 by opernod           #+#    #+#             */
-/*   Updated: 2025/12/18 18:07:49 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2025/12/18 19:36:28 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,28 @@ char	*adaptive_algo(t_stack *stack)
 	}
 }
 
-static void	print_bench(t_stack *stack, float numdis, char *mode)
+static void	print_bench(t_stack *stack, float numdis, char *mode, int ada)
 {
 	char	*complexity;
 	
 	complexity = "";
 	if (ft_strcmp(mode, "--simple") == 0)
+	{
 		complexity = "O(n2)";
-	else if (ft_strcmp(mode, "--medium ") == 0)
+		mode = "Simple";
+	}
+	else if (ft_strcmp(mode, "--medium") == 0)
+	{
 		complexity = "O(n√n)";
+		mode = "Medium";
+	}
 	else if (ft_strcmp(mode, "--complex") == 0)
+	{
 		complexity = "O(n log n)";
+		mode = "Complex";
+	}
+	if (ada == 1)
+		mode = "Adaptative";
 	printf("[bench] disorder: %f%%\n", numdis);
 	printf("[bench] strategy: %s / %s\n", mode, complexity);
 	printf("[bench] total_ops: %i\n", stack->total);
@@ -74,10 +85,10 @@ void	benchmode(t_stack *stack, char *mode)
 		else 
 			printf("adap_algo_mode = adaptive_algo(stack);");
 	}
-	if (adap_algo_mode)
-		print_bench(stack, numdis, adap_algo_mode);
+	if (ft_strcmp(mode, "") == 0)
+		print_bench(stack, numdis, adap_algo_mode, 1);
 	else
-		print_bench(stack, numdis, mode);
+		print_bench(stack, numdis, mode, 0);
 }
 
 static void init_all(t_stack *stack)
@@ -109,7 +120,7 @@ int	main(int argc, char **argv)
 	stack_a = args_to_int(argv, argc);
 	stack->stack_a = stack_a;
 	stack->stack_b = stack_b;
-	stack->len_a = 10;
+	stack->len_a = 5;
 	stack->len_b = 0;
 	init_all(stack);
 	i = 0;
@@ -124,6 +135,7 @@ int	main(int argc, char **argv)
 		printf("stack[%i] = %i \n", i, stack->stack_a[i]);
 		i++;
 	}
+	printf("disorder = %f\n", disorder(stack));
 	free(stack);
 	free(stack_a);
 }

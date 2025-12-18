@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:26:53 by opernod           #+#    #+#             */
-/*   Updated: 2025/12/18 16:52:38 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2025/12/18 19:24:49 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(void)
 {
 	int 	size;
 	int 	*stack_a;
-	int		stack_b[500] = {};
+	int		stack_b[10] = {};
 	int		i;
 	float	disorder_per;
 
@@ -42,13 +42,13 @@ int	main(void)
 	stack_a = read_file_to_array("args.txt", &size);
 	stack->stack_a = stack_a;
 	stack->stack_b = stack_b;
-	stack->len_a = 500;
+	stack->len_a = 10;
 	stack->len_b = 0;
 	init_all(stack);
 	i = 0;
 	
 	disorder_per = disorder(stack);
- 	selection_sort(stack);
+ 	// selection_sort(stack);
 	while (i != stack->len_a)
 	{
 		printf("stack_a[%i] = %i \n", i, stack->stack_a[i]);

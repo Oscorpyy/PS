@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 14:40:30 by opernod           #+#    #+#             */
-/*   Updated: 2025/12/18 13:06:17 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2025/12/18 19:24:16 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ int	*read_file_to_array(const char *filename, int *size)
 	while (fscanf(file, "%d", &value) == 1)
 		array[i++] = value;
 	fclose(file);
-		size = count;
+		*size = count;
 	return array;
 }
