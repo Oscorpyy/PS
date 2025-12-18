@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 13:01:21 by lgoderne          #+#    #+#             */
-/*   Updated: 2025/12/18 14:43:59 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2025/12/18 16:31:26 by lgoderne         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,13 @@ static void	compare(t_stack *stack, int i)
 	if (((stack->stack_a[0] >> i) & 1) == 0)
 		push_b(stack);
 	else
+	{
 		rotate_a(stack);
+		stack->stack_a += 1;
+	}
 }
 
-void	radix(t_stack *stack)
+int	radix(t_stack *stack)
 {
 	int	i;
 	int	j;
@@ -58,6 +61,8 @@ void	radix(t_stack *stack)
 		while (stack->len_b > 0)
 		{
 			push_a(stack);
+			stack->total += 1;
 		}
 	}
+	return (0);
 }
