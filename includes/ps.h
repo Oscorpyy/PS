@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 10:46:37 by lgoderne          #+#    #+#             */
-/*   Updated: 2025/12/18 14:53:01 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2025/12/18 14:55:59 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_stack
 
 int		benchmode(t_stack *stack);
 int		selection_sort(t_stack *stack);
-int		bucket_sort_simple(t_stack stack);
+int		bucket_sort_simple(t_stack *stack);
 int		*args_to_int(char **str, int strlen);
 int		*args_to_int(char **str, int strlen);
 long	ft_atoi(const char *str);

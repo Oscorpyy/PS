@@ -6,7 +6,7 @@
 /*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 16:27:04 by lgoderne          #+#    #+#             */
-/*   Updated: 2025/12/18 18:08:48 by lgoderne         ###   ########lyon.fr   */
+/*   Updated: 2025/12/18 18:54:44 by lgoderne         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,41 +35,6 @@ static int	ft_sqrt(int nb)
 			return ((int)mid);
 	}
 	return (0);
-}
-
-static int get_max(t_stack *stack)
-{
-	int	i;
-	int	max;
-
-	max = stack->stack_a[0];
-	i = 0;
-	while (i < stack->len_a)
-	{
-		if (stack->stack_a[i] > max)
-			max = stack->stack_a[i];
-	}
-	return (max);
-}
-
-static int get_min(t_stack *stack)
-{
-	int	i;
-	int	min;
-
-	min = stack->stack_a[0];
-	i = 0;
-	while (i < stack->len_a)
-	{
-		if (stack->stack_a[i] < min)
-			min = stack->stack_a[i];
-	}
-	return (min);
-}
-
-static void	sort_temp_tab(int *tab, int size)
-{
-	
 }
 
 int	bucket_sort_simple(t_stack *stack)
