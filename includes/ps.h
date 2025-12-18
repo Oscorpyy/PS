@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 10:46:37 by lgoderne          #+#    #+#             */
-/*   Updated: 2025/12/18 14:55:59 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2025/12/18 18:07:20 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,10 @@ typedef struct s_stack
 	int	total;
 }	t_stack;
 
-int		benchmode(t_stack *stack);
-int		selection_sort(t_stack *stack);
 int		bucket_sort_simple(t_stack *stack);
 int		*args_to_int(char **str, int strlen);
-int		*args_to_int(char **str, int strlen);
-long	ft_atoi(const char *str);
+int		ft_strcmp(const char *s1, const char *s2);
+long	ft_atol(const char *str);
 void	radix(t_stack *stack);
 void	push_a(t_stack *stack);
 void	push_b(t_stack *stack);
@@ -56,8 +54,10 @@ void	rotate_r(t_stack *stack);
 void	reverse_rotate_a(t_stack *stack);
 void	reverse_rotate_b(t_stack *stack);
 void	reverse_rotate_r(t_stack *stack);
-void	adaptive_algo(t_stack *stack);
+void	selection_sort(t_stack *stack);
 void	mode(char	**str, t_stack *stack);
+void	benchmode(t_stack *stack, char *mode);
+char	*adaptive_algo(t_stack *stack);
 float	disorder(t_stack *stack);
 
 #endif
