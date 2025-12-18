@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 13:01:21 by lgoderne          #+#    #+#             */
-/*   Updated: 2025/12/17 15:48:06 by lgoderne         ###   ########lyon.fr   */
+/*   Updated: 2025/12/18 14:43:59 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,24 +32,21 @@ static int	calc_max_bits(t_stack *stack)
 	return (max_bits);
 }
 
-static void	compare(t_stack *stack, int *total, int i)
+static void	compare(t_stack *stack, int i)
 {
 	if (((stack->stack_a[0] >> i) & 1) == 0)
 		push_b(stack);
 	else
 		rotate_a(stack);
-	*total += 1;
 }
 
-int	radix(t_stack *stack)
+void	radix(t_stack *stack)
 {
 	int	i;
 	int	j;
 	int	size;
 	int	max_bits;
-	int	total;
 
-	total = 0;
 	max_bits = calc_max_bits(stack);
 	i = 0;
 	while (i++ < max_bits)
@@ -57,12 +54,10 @@ int	radix(t_stack *stack)
 		size = stack->len_a;
 		j = 0;
 		while (j++ < size)
-			compare(stack, &total, i);
+			compare(stack, i);
 		while (stack->len_b > 0)
 		{
 			push_a(stack);
-			total += 1;
 		}
 	}
-	return (total);
 }
