@@ -6,13 +6,29 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:26:53 by opernod           #+#    #+#             */
-/*   Updated: 2025/12/18 12:12:53 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2025/12/18 13:09:37 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
 
 int *read_file_to_array(const char *filename, int *size);
+
+static void init_all(t_stack *stack)
+{
+	stack->pa = 0;
+	stack->pb = 0;
+	stack->ra = 0;
+	stack->rb = 0;
+	stack->rr = 0;
+	stack->rra = 0;
+	stack->rrb = 0;
+	stack->rrr = 0;
+	stack->sa = 0;
+	stack->sb = 0;
+	stack->ss = 0;
+	stack->total = 0;
+}
 
 int	main(void)
 {
@@ -29,6 +45,7 @@ int	main(void)
 	stack->stack_b = stack_b;
 	stack->len_a = 500;
 	stack->len_b = 0;
+	init_all(stack);
 	i = 0;
 	
 	disorder_per = disorder(stack);
