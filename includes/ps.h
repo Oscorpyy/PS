@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 10:46:37 by lgoderne          #+#    #+#             */
-/*   Updated: 2025/12/17 16:18:26 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2025/12/18 12:51:39 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ typedef struct s_stack
 	int	len_b;
 }	t_stack;
 
+int		*args_to_int(char **str, int strlen);
+long	ft_atol(const char *str);
 int		radix(t_stack *stack);
 int		selection_sort(t_stack *stack);
 void	swap_a(t_stack *stack);
