@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 10:46:37 by lgoderne          #+#    #+#             */
-/*   Updated: 2025/12/18 13:09:21 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2025/12/18 14:53:01 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,26 +38,26 @@ typedef struct s_stack
 	int	total;
 }	t_stack;
 
-int		*args_to_int(char **str, int strlen);
-long	ft_atol(const char *str);
-int		radix(t_stack *stack);
+int		benchmode(t_stack *stack);
 int		selection_sort(t_stack *stack);
+int		bucket_sort_simple(t_stack stack);
+int		*args_to_int(char **str, int strlen);
+int		*args_to_int(char **str, int strlen);
+long	ft_atoi(const char *str);
+void	radix(t_stack *stack);
+void	push_a(t_stack *stack);
+void	push_b(t_stack *stack);
 void	swap_a(t_stack *stack);
 void	swap_b(t_stack *stack);
 void	swap_s(t_stack *stack);
-void	push_a(t_stack *stack);
-void	push_b(t_stack *stack);
 void	rotate_a(t_stack *stack);
 void	rotate_b(t_stack *stack);
 void	rotate_r(t_stack *stack);
 void	reverse_rotate_a(t_stack *stack);
 void	reverse_rotate_b(t_stack *stack);
 void	reverse_rotate_r(t_stack *stack);
+void	adaptive_algo(t_stack *stack);
+void	mode(char	**str, t_stack *stack);
 float	disorder(t_stack *stack);
-void	ft_bubble_sort(t_stack *stack);
-void	bubble_sort_push_swap(t_stack *stack);
-int		get_index(t_stack *stack, int value, int len);
-int		get_chunk_size(int size);
-void	push_all_back(t_stack *stack, int *total);
 
 #endif
