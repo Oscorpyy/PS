@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 10:44:45 by lgoderne          #+#    #+#             */
-/*   Updated: 2025/12/18 12:47:56 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2025/12/18 16:58:01 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	ft_isdigit(int character)
 		return (0);
 }
 
-long	ft_atoi(const char *str)
+long	ft_atol(const char *str)
 {
 	int	i;
 	int	neg_mult;

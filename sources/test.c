@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:26:53 by opernod           #+#    #+#             */
-/*   Updated: 2025/12/18 13:09:37 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2025/12/18 16:52:38 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	main(void)
 	int 	*stack_a;
 	int		stack_b[500] = {};
 	int		i;
-	int		total;
 	float	disorder_per;
 
 	t_stack *stack = malloc(sizeof(t_stack));
@@ -49,7 +48,7 @@ int	main(void)
 	i = 0;
 	
 	disorder_per = disorder(stack);
- 	total = selection_sort(stack);
+ 	selection_sort(stack);
 	while (i != stack->len_a)
 	{
 		printf("stack_a[%i] = %i \n", i, stack->stack_a[i]);
@@ -62,5 +61,5 @@ int	main(void)
 		i++;
 	}
 	printf("\ndisorder = %f%%\n", (disorder_per)*100);
-	printf("total operation = %i", total);
+	printf("total operation = %i", stack->total);
 }
