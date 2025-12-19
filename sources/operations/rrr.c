@@ -29,7 +29,6 @@ static void	rra(t_stack *stack)
 	stack->stack_a[0] = temp;
 }
 
-
 static void	rrb(t_stack *stack)
 {
 	int	i;

@@ -17,12 +17,12 @@ int	*args_to_int(char **str, int strlen)
 	int		i;
 	int		*nbs;
 	long	nb;
-	
+
 	i = 1;
 	nbs = malloc((strlen - 2) * sizeof(int));
 	if (!nbs)
 		return (NULL);
-	while(i < strlen && str[i][1] != '-')
+	while (i < strlen && str[i][1] != '-')
 	{
 		nb = ft_atol(str[i]);
 		if (nb > 2147483647 || nb < -2147483648)
@@ -35,28 +35,3 @@ int	*args_to_int(char **str, int strlen)
 	}
 	return (nbs);
 }
-
-/* int	main(int argc, char **argv)
-{
-	int	*nb;
-	int	i;
-
-	if (argc < 3)
-	{
-		if (argc == 2)
-			printf("%s", argv[1]);
-		return (0);
-	}
-	nb = args_to_int(argv, argc);
-	i = 0;
-	if (!nb)
-	{
-		printf("abuse frr on as dit un int");
-		return(0);
-	}
-	while (i != argc - 1)
-	{
-		printf("stack[%i] = %i \n", i, nb[i]);
-		i++;
-	}
-} */

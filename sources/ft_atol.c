@@ -29,8 +29,8 @@ static int	ft_isdigit(int character)
 
 long	ft_atol(const char *str)
 {
-	int	i;
-	int	neg_mult;
+	int		i;
+	int		neg_mult;
 	long	res;
 
 	res = 0;

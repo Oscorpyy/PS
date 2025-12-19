@@ -36,4 +36,3 @@ float	disorder(t_stack *stack)
 	}
 	return (mistakes / total_pairs);
 }
-

@@ -12,7 +12,9 @@
 
 #include "../includes/ps.h"
 
-static void init_all(t_stack *stack)
+int *read_file_to_array(const char *filename, int *size);
+
+static void	init_all(t_stack *stack)
 {
 	stack->pa = 0;
 	stack->pb = 0;
@@ -30,7 +32,33 @@ static void init_all(t_stack *stack)
 
 int	main(int argc, char **argv)
 {
-	(void)argc;
-	(void)argv;
-	return (0);
+	int		*stack_a;
+	int		stack_b[500];
+	int		i;
+	t_stack	*stack;
+
+	stack = malloc(sizeof(t_stack));
+	if (!stack)
+		return (0);
+	stack_a = args_to_int(argv, argc);
+	stack->stack_a = stack_a;
+	stack->stack_b = stack_b;
+	stack->len_a = 5;
+	stack->len_b = 0;
+	init_all(stack);
+	i = 0;
+	mode(argv, stack);
+	if (!stack->stack_a)
+	{
+		printf("abuse frr on as dit un int");
+		return (0);
+	}
+	while (i != argc - 1)
+	{
+		printf("stack[%i] = %i \n", i, stack->stack_a[i]);
+		i++;
+	}
+	printf("disorder = %f\n", disorder(stack));
+	free(stack);
+	free(stack_a);
 }

@@ -18,29 +18,31 @@ int	*read_file_to_array(const char *filename, int *size)
 	FILE	*file;
 	int		*array;
 	int		value;
-	int		count = 0;
-	int		i = 0;
+	int		count;
+	int		i;
 
+	count = 0;
+	i = 0;
 	file = fopen(filename, "r");
 	if (!file)
-		return NULL;
+		return (NULL);
 	while (fscanf(file, "%d", &value) == 1)
 		count++;
 	if (count == 0)
 	{
 		fclose(file);
-		return NULL;
+		return (NULL);
 	}
 	array = malloc(sizeof(int) * count);
 	if (!array)
 	{
 		fclose(file);
-		return NULL;
+		return (NULL);
 	}
 	rewind(file);
 	while (fscanf(file, "%d", &value) == 1)
 		array[i++] = value;
 	fclose(file);
-		*size = count;
-	return array;
+	*size = count;
+	return (array);
 }
