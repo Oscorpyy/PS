@@ -12,20 +12,41 @@
 
 #include "../includes/ps.h"
 
+static int	only_num(char *str)
+{
+	int	i;
+	int	error;
+	
+	i = 0;
+	error = 0;
+	if (str[0] == '-')
+		i = 1;
+	while (str[i])
+	{
+		if (str[i] < 48 || str[i] > 57)
+			error = -1;
+		i++;
+	}
+	return (error);
+}
+
 int	*args_to_int(char **str, int strlen)
 {
 	int		i;
 	int		*nbs;
 	long	nb;
+	int		error;
 
 	i = 1;
-	nbs = malloc((strlen - 2) * sizeof(int));
+	error = 0;
+	nbs = malloc((strlen - 1) * sizeof(int));
 	if (!nbs)
 		return (NULL);
 	while (i < strlen && str[i][1] != '-')
 	{
+		error = only_num(str[i]);
 		nb = ft_atol(str[i]);
-		if (nb > 2147483647 || nb < -2147483648)
+		if (nb > 2147483647 || nb < -2147483648 || error == -1)
 		{
 			free(nbs);
 			return (NULL);

@@ -12,8 +12,6 @@
 
 #include "../includes/ps.h"
 
-int *read_file_to_array(const char *filename, int *size);
-
 static void	init_all(t_stack *stack)
 {
 	stack->pa = 0;
@@ -30,6 +28,28 @@ static void	init_all(t_stack *stack)
 	stack->total = 0;
 }
 
+static int	only_one(t_stack *stack)
+{
+	int	error;
+	int	i;
+	int	j;
+
+	error = 0;
+	i = 0;
+	while(i < stack->len_a)
+	{
+		j = i + 1;
+		while(j < stack->len_a)
+		{
+			if (stack->stack_a[i] == stack->stack_a[j])
+				error++;
+			j++;
+		}
+		i++;
+	}
+	return (error);
+}
+
 int	main(int argc, char **argv)
 {
 	int		*stack_a;
@@ -43,22 +63,28 @@ int	main(int argc, char **argv)
 	stack_a = args_to_int(argv, argc);
 	stack->stack_a = stack_a;
 	stack->stack_b = stack_b;
-	stack->len_a = 5;
+	stack->len_a = 10;
 	stack->len_b = 0;
 	init_all(stack);
 	i = 0;
-	mode(argv, stack);
-	if (!stack->stack_a)
+	if (!stack->stack_a || only_one(stack) != 0)
 	{
-		printf("abuse frr on as dit un int");
+		printf("Error\n");
+		if (stack)
+			free(stack);
+		if (stack)
+			free(stack_a);
 		return (0);
 	}
+	mode(argv, stack);
 	while (i != argc - 1)
 	{
 		printf("stack[%i] = %i \n", i, stack->stack_a[i]);
 		i++;
 	}
 	printf("disorder = %f\n", disorder(stack));
-	free(stack);
-	free(stack_a);
+	if (stack)
+		free(stack);
+	if (stack)
+		free(stack_a);
 }
