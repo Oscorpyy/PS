@@ -6,7 +6,7 @@
 /*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 13:01:21 by lgoderne          #+#    #+#             */
-/*   Updated: 2025/12/21 16:25:03 by azazel           ###   ########lyon.fr   */
+/*   Updated: 2025/12/21 22:19:46 by azazel           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,7 @@ static void	compare(t_stack *stack, int i)
 	if (((stack->stack_a[0] >> i) & 1) == 0)
 		push_b(stack);
 	else
-	{
 		rotate_a(stack);
-		//stack->stack_a += 1;
-	}
 }
 
 void	radix(t_stack *stack)

@@ -6,25 +6,25 @@
 /*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 16:27:04 by lgoderne          #+#    #+#             */
-/*   Updated: 2025/12/21 15:41:01 by azazel           ###   ########lyon.fr   */
+/*   Updated: 2025/12/21 22:51:20 by azazel           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
 
-static int ft_sqrt(int nb)
+static int	ft_sqrt(int nb)
 {
-    int i;
+	int	i;
 
-    if (nb <= 0)
-        return (0);
-    i = 1;
-    while (i * i <= nb && i <= 46340)
-        i++;
-    return (i - 1);
+	if (nb <= 0)
+		return (0);
+	i = 1;
+	while (i * i <= nb && i <= 46340)
+		i++;
+	return (i - 1);
 }
 
-static int get_max_pos(t_stack *stack, int to_find)
+static int	get_max_pos(t_stack *stack, int to_find)
 {
 	int	i;
 
@@ -38,16 +38,10 @@ static int get_max_pos(t_stack *stack, int to_find)
 	return (-1);
 }
 
-int	bucket_sort_simple(t_stack *stack)
+static void	loop_stack_a(t_stack *stack, int range)
 {
 	int	i;
-	int	range;
-	int	max;
-	int	max_pos;
-	int	*tmp_tab;
 
-	tmp_tab = indexation(stack);
-	range = ft_sqrt(stack->len_a);
 	i = 0;
 	while (stack->len_a > 0)
 	{
@@ -65,6 +59,19 @@ int	bucket_sort_simple(t_stack *stack)
 		else
 			rotate_a(stack);
 	}
+}
+
+void	bucket_sort_simple(t_stack *stack)
+{
+	int	i;
+	int	range;
+	int	max;
+	int	max_pos;
+	int	*tmp_tab;
+
+	tmp_tab = indexation(stack);
+	range = ft_sqrt(stack->len_a);
+	loop_stack_a(stack, range);
 	while (stack->len_b > 0)
 	{
 		max = stack->len_b - 1;
@@ -76,12 +83,8 @@ int	bucket_sort_simple(t_stack *stack)
 		else
 			reverse_rotate_b(stack);
 	}
-	i = 0;
-	while (i < stack->len_a)
-	{
+	i = -1;
+	while (++i < stack->len_a)
 		stack->stack_a[i] = tmp_tab[stack->stack_a[i]];
-		i++;
-	}
 	free(tmp_tab);
-	return (0);
 }
