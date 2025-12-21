@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bucket_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 16:27:04 by lgoderne          #+#    #+#             */
-/*   Updated: 2025/12/18 18:54:44 by lgoderne         ###   ########lyon.fr   */
+/*   Updated: 2025/12/21 13:31:48 by azazel           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,23 +37,97 @@ static int	ft_sqrt(int nb)
 	return (0);
 }
 
+static int get_max(t_stack *stack)
+{
+	int	i;
+	int	max;
+
+	max = stack->stack_a[0];
+	i = 0;
+	while (i < stack->len_a)
+	{
+		if (max < stack->stack_b[i])
+			max = stack->stack_b[i];
+		i++;
+	}
+	return (max);
+}
+
+static void sort_int_tab(int *tab, int size)
+{
+	int i;
+	int j;
+	int temp;
+
+    i = 0;
+    while (i < size)
+    {
+		j = 0;
+		while (j < size - 1 - i)
+		{
+			if (tab[j] > tab[j + 1])
+			{
+				temp = tab[j];
+				tab[j] = tab[j + 1];
+				tab[j + 1] = temp;
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
+static int	*indexation(t_stack *stack)
+{
+	int	*ranked_tab;
+	int *temp_tab;
+	int	i;
+	int	j;
+
+	temp_tab = malloc(sizeof(int) * stack->len_a);
+	if (!temp_tab)
+		return (NULL);
+	i = -1;
+	while (++i < stack->len_a)
+		temp_tab[i] = stack->stack_a[i];
+	sort_int_tab(temp_tab, stack->len_a);
+	i = 0;
+	while (i < stack->len_a)
+	{
+		j = 0;
+		while (j < stack->len_a)
+		{
+			if (stack->stack_a[i] == temp_tab[j])
+			{
+				stack->stack_a[i] = j;
+				break;
+			}
+			j++;
+		}
+		i++;
+	}
+	return (temp_tab);
+}
+
 int	bucket_sort_simple(t_stack *stack)
 {
 	int	i;
 	int	range;
 	int	max;
-	
+	int	*tmp_tab;
+
+	tmp_tab = indexation(stack);
 	range = ft_sqrt(stack->len_a);
 	i = 0;
 	while (stack->len_a > 0)
 	{
-		if (stack->stack_a[0] <= stack->stack_a[i])
+		if (stack->stack_a[0] <= i)
 		{
 			push_b(stack);
 			rotate_b(stack);
 			i++;
 		}
-		else if (stack->stack_a[0] <= stack->stack_a[i + range])
+		else if (stack->stack_a[0] <= i + range)
 		{
 			push_b(stack);
 			i++;
@@ -61,13 +135,20 @@ int	bucket_sort_simple(t_stack *stack)
 		else
 			rotate_a(stack);
 	}
-	while (stack->len_b > 0) // a opti
+	while (stack->len_b > 0)
 	{
-		max = get_max(stack);
+		max = stack->len_b - 1;
 		if (stack->stack_b[0] == max)
 			push_a(stack);
 		else
 			rotate_b(stack);
 	}
+	i = 0;
+	while (i < stack->len_a)
+	{
+		stack->stack_a[i] = tmp_tab[stack->stack_a[i]];
+		i++;
+	}
+	free(tmp_tab);
 	return (0);
 }

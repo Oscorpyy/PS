@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mode.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 18:49:29 by opernod           #+#    #+#             */
-/*   Updated: 2025/12/18 19:21:22 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2025/12/21 12:36:26 by azazel           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	mode(char	**str, t_stack *stack)
 		i++;
 	if (ft_strcmp(str[i], "--simple") == 0)
 		printf("selection_sort(stack);");
-	else if (ft_strcmp(str[i], "--medium ") == 0)
-		printf("bucket_sort(stack);");
+	else if (ft_strcmp(str[i], "--medium") == 0)
+		bucket_sort_simple(stack);
 	else if (ft_strcmp(str[i], "--complex") == 0)
-		printf("radix(stack);");
+		radix(stack);
 	else if (ft_strcmp(str[i], "--bench") == 0)
 	{
 		if (!str[i + 1])

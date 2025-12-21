@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ps.h"
+#include "../../includes/ps.h"
 
 static void	rra(t_stack *stack)
 {

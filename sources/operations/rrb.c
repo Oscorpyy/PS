@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ps.h"
+#include "../../includes/ps.h"
 
 void	reverse_rotate_b(t_stack *stack)
 {

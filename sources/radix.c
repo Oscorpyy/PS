@@ -43,7 +43,7 @@ static void	compare(t_stack *stack, int i)
 	}
 }
 
-int	radix(t_stack *stack)
+void	radix(t_stack *stack)
 {
 	int	i;
 	int	j;
@@ -64,5 +64,4 @@ int	radix(t_stack *stack)
 			stack->total += 1;
 		}
 	}
-	return (0);
 }

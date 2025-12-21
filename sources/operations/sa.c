@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ps.h"
+#include "../../includes/ps.h"
 
 void	swap_a(t_stack *stack)
 {

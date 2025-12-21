@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 15:35:00 by antigravity       #+#    #+#             */
-/*   Updated: 2025/12/18 13:09:13 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2025/12/21 13:38:25 by azazel           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,26 +63,28 @@ int	main(int argc, char **argv)
 	stack_a = args_to_int(argv, argc);
 	stack->stack_a = stack_a;
 	stack->stack_b = stack_b;
-	stack->len_a = 10;
+	stack->len_a = 500;
 	stack->len_b = 0;
 	init_all(stack);
-	i = 0;
 	if (!stack->stack_a || only_one(stack) != 0)
 	{
 		printf("Error\n");
 		if (stack)
-			free(stack);
+		free(stack);
 		if (stack)
-			free(stack_a);
+		free(stack_a);
 		return (0);
 	}
 	mode(argv, stack);
-	while (i != argc - 1)
+	i = 0;
+	while (i < stack->len_a)
 	{
 		printf("stack[%i] = %i \n", i, stack->stack_a[i]);
 		i++;
 	}
 	printf("disorder = %f\n", disorder(stack));
+	printf("total %i\n", stack->pa + stack->pb + stack->rb + stack->ra);
+	printf("total pa:%i pb:%i rb:%i ra:%i\n", stack->pa, stack->pb , stack->rb , stack->ra);
 	if (stack)
 		free(stack);
 	if (stack)
