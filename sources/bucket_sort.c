@@ -6,35 +6,22 @@
 /*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 16:27:04 by lgoderne          #+#    #+#             */
-/*   Updated: 2025/12/21 14:30:09 by azazel           ###   ########lyon.fr   */
+/*   Updated: 2025/12/21 15:41:01 by azazel           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
 
-static int	ft_sqrt(int nb)
+static int ft_sqrt(int nb)
 {
-	int			little;
-	long long	mid;
-	int			big;
+    int i;
 
-	if (nb < 1)
-		return (0);
-	little = 1;
-	big = nb;
-	if (nb == 1)
-		return (1);
-	while (little <= big)
-	{
-		mid = (little + big) / 2;
-		if (mid < nb)
-			little = mid + 1;
-		else if (mid * mid > nb)
-			big = mid - 1;
-		else
-			return ((int)mid);
-	}
-	return (big);
+    if (nb <= 0)
+        return (0);
+    i = 1;
+    while (i * i <= nb && i <= 46340)
+        i++;
+    return (i - 1);
 }
 
 static int get_max_pos(t_stack *stack, int to_find)
@@ -49,62 +36,6 @@ static int get_max_pos(t_stack *stack, int to_find)
 		i++;
 	}
 	return (-1);
-}
-
-static void sort_int_tab(int *tab, int size)
-{
-	int i;
-	int j;
-	int temp;
-
-    i = 0;
-    while (i < size)
-    {
-		j = 0;
-		while (j < size - 1 - i)
-		{
-			if (tab[j] > tab[j + 1])
-			{
-				temp = tab[j];
-				tab[j] = tab[j + 1];
-				tab[j + 1] = temp;
-			}
-			j++;
-		}
-		i++;
-	}
-}
-
-static int	*indexation(t_stack *stack)
-{
-	int	*ranked_tab;
-	int *temp_tab;
-	int	i;
-	int	j;
-
-	temp_tab = malloc(sizeof(int) * stack->len_a);
-	if (!temp_tab)
-		return (NULL);
-	i = -1;
-	while (++i < stack->len_a)
-		temp_tab[i] = stack->stack_a[i];
-	sort_int_tab(temp_tab, stack->len_a);
-	i = 0;
-	while (i < stack->len_a)
-	{
-		j = 0;
-		while (j < stack->len_a)
-		{
-			if (stack->stack_a[i] == temp_tab[j])
-			{
-				stack->stack_a[i] = j;
-				break;
-			}
-			j++;
-		}
-		i++;
-	}
-	return (temp_tab);
 }
 
 int	bucket_sort_simple(t_stack *stack)
@@ -151,7 +82,6 @@ int	bucket_sort_simple(t_stack *stack)
 		stack->stack_a[i] = tmp_tab[stack->stack_a[i]];
 		i++;
 	}
-	printf("range : %i", range);
 	free(tmp_tab);
 	return (0);
 }

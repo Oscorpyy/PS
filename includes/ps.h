@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 10:46:37 by lgoderne          #+#    #+#             */
-/*   Updated: 2025/12/18 18:07:20 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2025/12/21 15:41:56 by azazel           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_stack
 int		bucket_sort_simple(t_stack *stack);
 int		*args_to_int(char **str, int strlen);
 int		ft_strcmp(const char *s1, const char *s2);
+int		*indexation(t_stack *stack);
 long	ft_atol(const char *str);
 void	radix(t_stack *stack);
 void	push_a(t_stack *stack);

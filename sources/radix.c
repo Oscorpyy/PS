@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 13:01:21 by lgoderne          #+#    #+#             */
-/*   Updated: 2025/12/18 16:31:26 by lgoderne         ###   ########lyon.fr   */
+/*   Updated: 2025/12/21 16:25:03 by azazel           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	calc_max_bits(t_stack *stack)
 	int	max_bits;
 
 	max = stack->stack_a[0];
-	i = 1;
+	i = 0;
 	while (i < stack->len_a)
 	{
 		if (max < stack->stack_a[i])
@@ -39,7 +39,7 @@ static void	compare(t_stack *stack, int i)
 	else
 	{
 		rotate_a(stack);
-		stack->stack_a += 1;
+		//stack->stack_a += 1;
 	}
 }
 
@@ -48,20 +48,26 @@ void	radix(t_stack *stack)
 	int	i;
 	int	j;
 	int	size;
+	int	*tmp_tab;
 	int	max_bits;
 
+	tmp_tab = indexation(stack);
 	max_bits = calc_max_bits(stack);
-	i = 0;
-	while (i++ < max_bits)
+	i = -1;
+	while (++i < max_bits)
 	{
 		size = stack->len_a;
-		j = 0;
-		while (j++ < size)
+		j = -1;
+		while (++j < size)
 			compare(stack, i);
 		while (stack->len_b > 0)
-		{
 			push_a(stack);
-			stack->total += 1;
-		}
 	}
+	i = 0;
+	while (i < stack->len_a)
+	{
+		stack->stack_a[i] = tmp_tab[stack->stack_a[i]];
+		i++;
+	}
+	free(tmp_tab);
 }
