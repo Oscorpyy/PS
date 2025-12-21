@@ -6,7 +6,7 @@
 /*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 16:27:04 by lgoderne          #+#    #+#             */
-/*   Updated: 2025/12/21 13:31:48 by azazel           ###   ########lyon.fr   */
+/*   Updated: 2025/12/21 13:50:19 by azazel           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,20 +37,18 @@ static int	ft_sqrt(int nb)
 	return (0);
 }
 
-static int get_max(t_stack *stack)
+static int get_max_pos(t_stack *stack, int to_find)
 {
 	int	i;
-	int	max;
 
-	max = stack->stack_a[0];
 	i = 0;
-	while (i < stack->len_a)
+	while (i < stack->len_b)
 	{
-		if (max < stack->stack_b[i])
-			max = stack->stack_b[i];
+		if (stack->stack_b[i] == to_find)
+			return (i);
 		i++;
 	}
-	return (max);
+	return (-1);
 }
 
 static void sort_int_tab(int *tab, int size)
@@ -114,6 +112,7 @@ int	bucket_sort_simple(t_stack *stack)
 	int	i;
 	int	range;
 	int	max;
+	int	max_pos;
 	int	*tmp_tab;
 
 	tmp_tab = indexation(stack);
@@ -138,10 +137,13 @@ int	bucket_sort_simple(t_stack *stack)
 	while (stack->len_b > 0)
 	{
 		max = stack->len_b - 1;
-		if (stack->stack_b[0] == max)
+		max_pos = get_max_pos(stack, max);
+		if (max_pos == 0)
 			push_a(stack);
-		else
+		else if (max_pos <= stack->len_b / 2)
 			rotate_b(stack);
+		else
+			reverse_rotate_b(stack);
 	}
 	i = 0;
 	while (i < stack->len_a)

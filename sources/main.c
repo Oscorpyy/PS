@@ -6,7 +6,7 @@
 /*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 15:35:00 by antigravity       #+#    #+#             */
-/*   Updated: 2025/12/21 13:38:25 by azazel           ###   ########lyon.fr   */
+/*   Updated: 2025/12/21 13:50:55 by azazel           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	main(int argc, char **argv)
 	}
 	printf("disorder = %f\n", disorder(stack));
 	printf("total %i\n", stack->pa + stack->pb + stack->rb + stack->ra);
-	printf("total pa:%i pb:%i rb:%i ra:%i\n", stack->pa, stack->pb , stack->rb , stack->ra);
+	printf("total pa:%i pb:%i rb:%i ra:%i rrb:%i \n", stack->pa, stack->pb , stack->rb , stack->ra, stack->rrb);
 	if (stack)
 		free(stack);
 	if (stack)
