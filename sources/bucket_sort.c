@@ -6,7 +6,7 @@
 /*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 16:27:04 by lgoderne          #+#    #+#             */
-/*   Updated: 2025/12/21 13:50:19 by azazel           ###   ########lyon.fr   */
+/*   Updated: 2025/12/21 14:30:09 by azazel           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	ft_sqrt(int nb)
 		else
 			return ((int)mid);
 	}
-	return (0);
+	return (big);
 }
 
 static int get_max_pos(t_stack *stack, int to_find)
@@ -151,6 +151,7 @@ int	bucket_sort_simple(t_stack *stack)
 		stack->stack_a[i] = tmp_tab[stack->stack_a[i]];
 		i++;
 	}
+	printf("range : %i", range);
 	free(tmp_tab);
 	return (0);
 }
