@@ -69,7 +69,7 @@ void	free_all(t_stack *stack, int i)
 
 int	main(int argc, char **argv)
 {
-	int		i;
+	// int		i;
 	int		*stack_a;
 	t_stack	*stack;
 
@@ -87,12 +87,12 @@ int	main(int argc, char **argv)
 		free_all(stack, 1);
 		return (0);
 	}
-	i = 0;
-	while (i < stack->len_a)
-	{
-		ft_printf("stack[%i] = %i \n", i, stack->stack_a[i]);
-		i++;
-	}
+	// i = 0;
+	// while (i < stack->len_a)
+	// {
+	// 	ft_printf("stack[%i] = %i \n", i, stack->stack_a[i]);
+	// 	i++;
+	// }
 	ft_printf("disorder after sort : %f\n", disorder(stack));
 	free(stack_a);
 	free_all(stack, 0);
