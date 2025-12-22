@@ -55,7 +55,6 @@ void	rotate_b(t_stack *stack);
 void	rotate_r(t_stack *stack);
 void	radix_sort(t_stack *stack);
 void	selection_sort(t_stack *stack);
-void	free_all(t_stack *stack, int i);
 void	reverse_rotate_a(t_stack *stack);
 void	reverse_rotate_b(t_stack *stack);
 void	reverse_rotate_r(t_stack *stack);

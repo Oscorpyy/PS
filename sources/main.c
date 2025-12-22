@@ -58,12 +58,14 @@ static int	only_one(t_stack *stack)
 	return (error);
 }
 
-void	free_all(t_stack *stack, int i)
+static void	free_all(t_stack *stack, int* stack_a, int i)
 {
 	if (i == 1)
 		ft_printf("Error\n");
 	if (stack)
 		free(stack);
+	if (stack_a)
+		free(stack_a);
 	return ;
 }
 
@@ -84,7 +86,7 @@ int	main(int argc, char **argv)
 	ft_printf("disorder before sort : %f\n", disorder(stack));
 	if (!stack->stack_a || only_one(stack) != 0 || mode(argv, stack) == 1)
 	{
-		free_all(stack, 1);
+		free_all(stack, stack_a, 1);
 		return (0);
 	}
 	// i = 0;
@@ -94,6 +96,5 @@ int	main(int argc, char **argv)
 	// 	i++;
 	// }
 	ft_printf("disorder after sort : %f\n", disorder(stack));
-	free(stack_a);
-	free_all(stack, 0);
+	free_all(stack, stack_a, 0);
 }
