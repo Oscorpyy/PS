@@ -38,6 +38,7 @@ void	swap_s(t_stack *stack)
 {
 	sa(stack);
 	sb(stack);
+	stack->total++;
 	stack->ss++;
 	printf("ss\n");
 }

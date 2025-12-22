@@ -63,7 +63,7 @@ int	main(int argc, char **argv)
 	stack_a = args_to_int(argv, argc);
 	stack->stack_a = stack_a;
 	stack->stack_b = stack_b;
-	stack->len_a = 500;
+	stack->len_a = 10;
 	stack->len_b = 0;
 	init_all(stack);
 	if (!stack->stack_a || only_one(stack) != 0)
@@ -75,6 +75,7 @@ int	main(int argc, char **argv)
 			free(stack_a);
 		return (0);
 	}
+	printf("disorder = %f\n", disorder(stack));
 	mode(argv, stack);
 	i = 0;
 	while (i < stack->len_a)
@@ -82,7 +83,6 @@ int	main(int argc, char **argv)
 		printf("stack[%i] = %i \n", i, stack->stack_a[i]);
 		i++;
 	}
-	printf("disorder = %f\n", disorder(stack));
 	if (stack)
 		free(stack);
 	if (stack)

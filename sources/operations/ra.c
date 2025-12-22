@@ -27,6 +27,7 @@ void	rotate_a(t_stack *stack)
 		i++;
 	}
 	stack->stack_a[i] = temp;
+	stack->total++;
 	stack->ra++;
 	printf("ra\n");
 }

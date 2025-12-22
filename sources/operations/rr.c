@@ -50,6 +50,7 @@ void	rotate_r(t_stack *stack)
 {
 	ra(stack);
 	rb(stack);
+	stack->total++;
 	stack->rr++;
 	printf("rr\n");
 }

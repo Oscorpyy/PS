@@ -34,7 +34,18 @@ char	*adaptive_algo(t_stack *stack)
 	}
 }
 
-static void	print_bench(t_stack *stack, float numdis, char *mode, int ada)
+static void	putstr_bench()
+{
+	printf("[bench] disorder: %f%%\n", numdis);
+	printf("[bench] strategy: %s / %s\n", mode, complexity);
+	printf("[bench] total_ops: %i\n", stack->total);
+	printf("[bench] sa: %i, sb: %i, ss: %i,", stack->sa, stack->sb, stack->ss);
+	printf(" pa: %i, pb: %i\n", stack->pa, stack->pb);
+	printf("[bench] ra: %i, rb: %i, rr: %i", stack->ra, stack->rb, stack->rr);
+	printf(", rra: %i, rrb: %i, rrr: %i\n", stack->rra, stack->rrb, stack->rrr);
+}
+
+static void	infos_bench(t_stack *stack, float numdis, char *mode, int ada)
 {
 	char	*complexity;
 
@@ -56,13 +67,7 @@ static void	print_bench(t_stack *stack, float numdis, char *mode, int ada)
 	}
 	if (ada == 1)
 		mode = "Adaptative";
-	printf("[bench] disorder: %f%%\n", numdis);
-	printf("[bench] strategy: %s / %s\n", mode, complexity);
-	printf("[bench] total_ops: %i\n", stack->total);
-	printf("[bench] sa: %i, sb: %i, ss: %i,", stack->sa, stack->sb, stack->ss);
-	printf(" pa: %i, pb: %i\n", stack->pa, stack->pb);
-	printf("[bench] ra: %i, rb: %i, rr: %i", stack->ra, stack->rb, stack->rr);
-	printf(", rra: %i, rrb: %i, rrr: %i\n", stack->rra, stack->rrb, stack->rrr);
+
 }
 
 void	benchmode(t_stack *stack, char *mode)
@@ -77,11 +82,11 @@ void	benchmode(t_stack *stack, char *mode)
 	else
 	{
 		if (ft_strcmp(mode, "--simple") == 0)
-			printf("selection_sort(stack);");
+			selection_sort(stack);
 		else if (ft_strcmp(mode, "--medium") == 0)
-			printf("bucket_sort(stack);");
+			bucket_sort_simple(stack);
 		else if (ft_strcmp(mode, "--complex") == 0)
-			printf("radix(stack);");
+			radix_sort(stack);
 		else
 		{
 			mode = "";
@@ -89,7 +94,7 @@ void	benchmode(t_stack *stack, char *mode)
 		}
 	}
 	if (ft_strcmp(mode, "") == 0)
-		print_bench(stack, numdis, adap_algo_mode, 1);
+		infos_bench(stack, numdis, adap_algo_mode, 1);
 	else
-		print_bench(stack, numdis, mode, 0);
+		infos_bench(stack, numdis, mode, 0);
 }

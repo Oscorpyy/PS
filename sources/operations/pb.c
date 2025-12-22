@@ -33,6 +33,7 @@ void	push_b(t_stack *stack)
 	}
 	stack->len_a--;
 	stack->len_b++;
+	stack->total++;
 	stack->pb++;
 	printf("pb\n");
 }

@@ -15,8 +15,8 @@ NAME		= push_swap
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror -I includes -I libft
 
-LIBFT_DIR	= libft
-LIBFT		= $(LIBFT_DIR)/libft.a
+LIBFT		= libft/libft.a
+PRINTF		= printf/printf.a
 
 SRC_DIR		= sources
 OP_DIR		= operations
@@ -34,7 +34,6 @@ SRC_FILES	= adaptive.c \
 			  disorder.c \
 			  ft_atol.c \
 			  ft_strcmp.c \
-			  get_agrs.c \
 			  index.c \
 			  main.c \
 			  mode.c \
@@ -49,7 +48,7 @@ OBJS		= $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME) -g
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)

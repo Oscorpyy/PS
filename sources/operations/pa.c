@@ -34,5 +34,6 @@ void	push_a(t_stack *stack)
 	stack->len_a++;
 	stack->len_b--;
 	stack->pa++;
+	stack->total++;
 	printf("pa\n");
 }

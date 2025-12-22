@@ -15,7 +15,6 @@
 void	mode(char	**str, t_stack *stack)
 {
 	int		i;
-	char	*adap_algo_mode;
 
 	i = 0;
 	while ((str[i] && str[i][0] != '-') || (str[i] && str [i][1] != '-'))
@@ -34,5 +33,5 @@ void	mode(char	**str, t_stack *stack)
 			benchmode(stack, str[i + 1]);
 	}
 	else
-		adap_algo_mode = adaptive_algo(stack);
+		adaptive_algo(stack);
 }
