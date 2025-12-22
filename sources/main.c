@@ -83,8 +83,6 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	printf("disorder = %f\n", disorder(stack));
-	// printf("total %i\n", stack->pa + stack->pb + stack->rb + stack->ra);
-	// printf("total pa:%i pb:%i rb:%i ra:%i rrb:%i \n", stack->pa, stack->pb , stack->rb , stack->ra, stack->rrb);
 	if (stack)
 		free(stack);
 	if (stack)

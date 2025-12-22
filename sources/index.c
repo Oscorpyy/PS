@@ -12,15 +12,15 @@
 
 #include "../includes/ps.h"
 
-static void sort_int_tab(int *tab, int size)
+static void	sort_int_tab(int *tab, int size)
 {
-	int i;
-	int j;
-	int temp;
+	int	i;
+	int	j;
+	int	temp;
 
-    i = 0;
-    while (i < size)
-    {
+	i = 0;
+	while (i < size)
+	{
 		j = 0;
 		while (j < size - 1 - i)
 		{
@@ -38,7 +38,7 @@ static void sort_int_tab(int *tab, int size)
 
 int	*indexation(t_stack *stack)
 {
-	int *temp_tab;
+	int	*temp_tab;
 	int	i;
 	int	j;
 
@@ -58,7 +58,7 @@ int	*indexation(t_stack *stack)
 			if (stack->stack_a[i] == temp_tab[++j])
 			{
 				stack->stack_a[i] = j;
-				break;
+				break ;
 			}
 		}
 	}

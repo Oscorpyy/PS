@@ -16,7 +16,7 @@ static int	only_num(char *str)
 {
 	int	i;
 	int	error;
-	
+
 	i = 0;
 	error = 0;
 	if (str[0] == '-')
