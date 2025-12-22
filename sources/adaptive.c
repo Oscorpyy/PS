@@ -67,35 +67,35 @@ static void	infos_bench(t_stack *stack, float numdis, char *mode, int ada)
 		mode = "Complex";
 	}
 	if (ada == 1)
-		mode = "Adaptative";
+		mode = "Adaptive";
 	printf_bench(stack, numdis, mode, complexity);
 }
 
-void	benchmode(t_stack *stack, char *mode)
+int	benchmode(t_stack *stack, char *mode)
 {
 	float	numdis;
 	char	*adap_algo_mode;
 
 	adap_algo_mode = "";
 	numdis = disorder(stack);
-	if (ft_strcmp(mode, "") == 0)
+	if (ft_strcmp(mode, "") == 0 || !mode)
 		adap_algo_mode = adaptive_algo(stack);
-	else
+	else if (ft_strcmp(mode, "--simple") == 0)
+		selection_sort(stack);
+	else if (ft_strcmp(mode, "--medium") == 0)
+		bucket_sort_simple(stack);
+	else if (ft_strcmp(mode, "--complex") == 0)
+		radix_sort(stack);
+	else if (ft_strcmp(mode, "--adaptive") == 0)
 	{
-		if (ft_strcmp(mode, "--simple") == 0)
-			selection_sort(stack);
-		else if (ft_strcmp(mode, "--medium") == 0)
-			bucket_sort_simple(stack);
-		else if (ft_strcmp(mode, "--complex") == 0)
-			radix_sort(stack);
-		else
-		{
-			mode = "";
-			adap_algo_mode = adaptive_algo(stack);
-		}
+		mode = "";
+		adap_algo_mode = adaptive_algo(stack);
 	}
-	if (ft_strcmp(mode, "") == 0)
+	else
+		return (1);
+	if (ft_strcmp(mode, "") == 0 || !mode)
 		infos_bench(stack, numdis, adap_algo_mode, 1);
 	else
 		infos_bench(stack, numdis, mode, 0);
+	return (0);
 }

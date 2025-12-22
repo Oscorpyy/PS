@@ -30,6 +30,21 @@ static int	only_num(char *str)
 	return (error);
 }
 
+int	get_len_stack(char	**str, int len_str)
+{
+	int	i;
+	int	total;
+
+	i = 1;
+	total = 0;
+	while (i < len_str && only_num(str[i]) == 0)
+	{
+		i++;
+		total++;
+	}
+	return (total);
+}
+
 int	*args_to_int(char **str, int strlen)
 {
 	int		i;

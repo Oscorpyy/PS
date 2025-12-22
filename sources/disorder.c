@@ -19,6 +19,8 @@ float	disorder(t_stack *stack)
 	int		i;
 	int		j;
 
+	if (stack->len_a < 2)
+		return (0.0);
 	mistakes = 0;
 	total_pairs = 0;
 	i = 0;

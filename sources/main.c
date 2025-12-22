@@ -12,8 +12,15 @@
 
 #include "../includes/ps.h"
 
-static void	init_all(t_stack *stack)
+static int	*init_all(t_stack *stack, char **argv, int argc)
 {
+	int		*stack_a;
+	int		stack_b[1000];
+
+	stack_a = args_to_int(argv, argc);
+	stack->stack_b = stack_b;
+	stack->len_a = get_len_stack(argv, argc);
+	stack->len_b = 0;
 	stack->pa = 0;
 	stack->pb = 0;
 	stack->ra = 0;
@@ -26,6 +33,7 @@ static void	init_all(t_stack *stack)
 	stack->sb = 0;
 	stack->ss = 0;
 	stack->total = 0;
+	return (stack_a);
 }
 
 static int	only_one(t_stack *stack)
@@ -50,41 +58,37 @@ static int	only_one(t_stack *stack)
 	return (error);
 }
 
+void	free_all(t_stack *stack, int i)
+{
+	if (i == 1)
+		ft_printf("Error\n");
+	if (stack)
+		free(stack);
+	return ;
+}
+
 int	main(int argc, char **argv)
 {
-	int		*stack_a;
-	int		stack_b[500];
 	int		i;
 	t_stack	*stack;
 
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
-		return (0);
-	stack_a = args_to_int(argv, argc);
-	stack->stack_a = stack_a;
-	stack->stack_b = stack_b;
-	stack->len_a = 1;
-	stack->len_b = 0;
-	init_all(stack);
-	if (!stack->stack_a || only_one(stack) != 0)
 	{
 		ft_printf("Error\n");
-		if (stack)
-			free(stack);
-		if (stack)
-			free(stack_a);
 		return (0);
 	}
-	ft_printf("disorder = %f\n", disorder(stack));
-	mode(argv, stack);
+	stack->stack_a = init_all(stack, argv, argc);
+	if (!stack->stack_a || only_one(stack) != 0 || mode(argv, stack) == 1)
+	{
+		free_all(stack, 1);
+		return (0);
+	}
 	i = 0;
 	while (i < stack->len_a)
 	{
 		ft_printf("stack[%i] = %i \n", i, stack->stack_a[i]);
 		i++;
 	}
-	if (stack)
-		free(stack);
-	if (stack)
-		free(stack_a);
+	free_all(stack, 0);
 }

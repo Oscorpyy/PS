@@ -12,26 +12,38 @@
 
 #include "../includes/ps.h"
 
-void	mode(char	**str, t_stack *stack)
+static int	for_bench(t_stack *stack, char	*str)
 {
-	int		i;
+	if (!str)
+		return (benchmode(stack, ""));
+	else
+		return (benchmode(stack, str));
+}
+
+int	mode(char	**str, t_stack *stack)
+{
+	int	i;
+	int	res;
 
 	i = 0;
+	res = 0;
 	while ((str[i] && str[i][0] != '-') || (str[i] && str [i][1] != '-'))
 		i++;
-	if (ft_strcmp(str[i], "--simple") == 0)
+	if (ft_strcmp(str[i], "") == 0 || !str[i])
+		adaptive_algo(stack);
+	else if (ft_strcmp(str[i], "--simple") == 0)
 		selection_sort(stack);
 	else if (ft_strcmp(str[i], "--medium") == 0)
 		bucket_sort_simple(stack);
 	else if (ft_strcmp(str[i], "--complex") == 0)
 		radix_sort(stack);
-	else if (ft_strcmp(str[i], "--bench") == 0)
-	{
-		if (!str[i + 1])
-			benchmode(stack, "");
-		else
-			benchmode(stack, str[i + 1]);
-	}
-	else
+	else if (ft_strcmp(str[i], "--adaptive") == 0)
 		adaptive_algo(stack);
+	else if (ft_strcmp(str[i], "--bench") == 0)
+		res = for_bench(stack, str[i + 1]);
+	else
+		return (1);
+	if (res == 1)
+		return (1);
+	return (0);
 }

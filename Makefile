@@ -59,7 +59,7 @@ $(PRINTF):
 	$(MAKE) -C $(PRINTF_DIR)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@ -g
 
 clean:
 	$(RM) $(OBJS)

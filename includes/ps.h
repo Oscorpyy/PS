@@ -37,13 +37,14 @@ typedef struct s_stack
 	int	total;
 }	t_stack;
 
+int		*indexation(t_stack *stack);
+int		mode(char	**str, t_stack *stack);
 int		*args_to_int(char **str, int strlen);
 int		ft_printf(const char *to_print, ...);
+int		benchmode(t_stack *stack, char *mode);
+int		get_len_stack(char	**str, int len_str);
 int		ft_strcmp(const char *s1, const char *s2);
-int		*indexation(t_stack *stack);
 long	ft_atol(const char *str);
-void	bucket_sort_simple(t_stack *stack);
-void	radix_sort(t_stack *stack);
 void	push_a(t_stack *stack);
 void	push_b(t_stack *stack);
 void	swap_a(t_stack *stack);
@@ -52,12 +53,13 @@ void	swap_s(t_stack *stack);
 void	rotate_a(t_stack *stack);
 void	rotate_b(t_stack *stack);
 void	rotate_r(t_stack *stack);
+void	radix_sort(t_stack *stack);
+void	selection_sort(t_stack *stack);
+void	free_all(t_stack *stack, int i);
 void	reverse_rotate_a(t_stack *stack);
 void	reverse_rotate_b(t_stack *stack);
 void	reverse_rotate_r(t_stack *stack);
-void	selection_sort(t_stack *stack);
-void	mode(char	**str, t_stack *stack);
-void	benchmode(t_stack *stack, char *mode);
+void	bucket_sort_simple(t_stack *stack);
 char	*adaptive_algo(t_stack *stack);
 float	disorder(t_stack *stack);
 
