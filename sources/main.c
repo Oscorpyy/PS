@@ -63,7 +63,7 @@ int	main(int argc, char **argv)
 	stack_a = args_to_int(argv, argc);
 	stack->stack_a = stack_a;
 	stack->stack_b = stack_b;
-	stack->len_a = 10;
+	stack->len_a = 1;
 	stack->len_b = 0;
 	init_all(stack);
 	if (!stack->stack_a || only_one(stack) != 0)
