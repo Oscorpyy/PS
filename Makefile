@@ -13,10 +13,13 @@
 NAME		= push_swap
 
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -I includes -I libft
+CFLAGS		= -Wall -Wextra -Werror -I includes -I libft -I printf/includes
 
-LIBFT		= libft/libft.a
-PRINTF		= printf/printf.a
+LIBFT_DIR	= libft
+LIBFT		= $(LIBFT_DIR)/libft.a
+
+PRINTF_DIR	= printf
+PRINTF		= $(PRINTF_DIR)/libftprintf.a
 
 SRC_DIR		= sources
 OP_DIR		= operations
@@ -47,11 +50,13 @@ OBJS		= $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME) -g
+$(NAME): $(OBJS) $(LIBFT) $(PRINTF)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $(NAME) -g
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
+$(PRINTF):
+	$(MAKE) -C $(PRINTF_DIR)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -59,10 +64,12 @@ $(LIBFT):
 clean:
 	$(RM) $(OBJS)
 	$(MAKE) -C $(LIBFT_DIR) clean
+	$(MAKE) -C $(PRINTF_DIR) clean
 
 fclean: clean
 	$(RM) $(NAME)
 	$(MAKE) -C $(LIBFT_DIR) fclean
+	$(MAKE) -C $(PRINTF_DIR) fclean
 
 re: fclean all
 

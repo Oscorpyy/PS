@@ -34,15 +34,15 @@ char	*adaptive_algo(t_stack *stack)
 	}
 }
 
-static void	putstr_bench()
+static void	printf_bench(t_stack *stack, float numdis, char *mode, char *On)
 {
 	printf("[bench] disorder: %f%%\n", numdis);
-	printf("[bench] strategy: %s / %s\n", mode, complexity);
+	printf("[bench] strategy: %s / %s\n", mode, On);
 	printf("[bench] total_ops: %i\n", stack->total);
 	printf("[bench] sa: %i, sb: %i, ss: %i,", stack->sa, stack->sb, stack->ss);
 	printf(" pa: %i, pb: %i\n", stack->pa, stack->pb);
 	printf("[bench] ra: %i, rb: %i, rr: %i", stack->ra, stack->rb, stack->rr);
-	printf(", rra: %i, rrb: %i, rrr: %i\n", stack->rra, stack->rrb, stack->rrr);
+	printf(", rra: %i, rrb: %i, rrr: %i\n", stack->rra, stack->rrb, stack->rr);
 }
 
 static void	infos_bench(t_stack *stack, float numdis, char *mode, int ada)
@@ -67,7 +67,7 @@ static void	infos_bench(t_stack *stack, float numdis, char *mode, int ada)
 	}
 	if (ada == 1)
 		mode = "Adaptative";
-
+	printf_bench(stack, numdis, mode, complexity);
 }
 
 void	benchmode(t_stack *stack, char *mode)
