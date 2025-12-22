@@ -23,5 +23,5 @@ void	swap_b(t_stack *stack)
 	stack->stack_b[1] = tmp;
 	stack->total++;
 	stack->sb++;
-	printf("sb\n");
+	ft_printf("sb\n");
 }

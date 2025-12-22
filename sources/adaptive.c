@@ -36,13 +36,14 @@ char	*adaptive_algo(t_stack *stack)
 
 static void	printf_bench(t_stack *stack, float numdis, char *mode, char *On)
 {
-	printf("[bench] disorder: %f%%\n", numdis);
-	printf("[bench] strategy: %s / %s\n", mode, On);
-	printf("[bench] total_ops: %i\n", stack->total);
-	printf("[bench] sa: %i, sb: %i, ss: %i,", stack->sa, stack->sb, stack->ss);
-	printf(" pa: %i, pb: %i\n", stack->pa, stack->pb);
-	printf("[bench] ra: %i, rb: %i, rr: %i", stack->ra, stack->rb, stack->rr);
-	printf(", rra: %i, rrb: %i, rrr: %i\n", stack->rra, stack->rrb, stack->rr);
+	ft_printf("[bench] disorder: %f%%\n", numdis);
+	ft_printf("[bench] strategy: %s / %s\n", mode, On);
+	ft_printf("[bench] total_ops: %i\n", stack->total);
+	ft_printf("[bench] sa: %i, sb: %i, ", stack->sa, stack->sb);
+	ft_printf("ss: %i, pa: %i, pb: %i\n", stack->ss, stack->pa, stack->pb);
+	ft_printf("[bench] ra: %i, rb: %i, ", stack->ra, stack->rb);
+	ft_printf("rr: %i, rra: %i, rrb: %i", stack->rr, stack->rra, stack->rrb);
+	ft_printf(", rrr: %i\n", stack->rr);
 }
 
 static void	infos_bench(t_stack *stack, float numdis, char *mode, int ada)

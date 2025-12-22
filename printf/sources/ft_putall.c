@@ -64,3 +64,22 @@ void	ft_putnbr_base(size_t n, char	*base, t_count *count)
 		count->error = -1;
 	count->count ++;
 }
+
+void	ft_putfloat(float num, t_count *count)
+{
+	int	int_part;
+	int	dec_part;
+
+	if (num < 0)
+	{
+		ft_putchar('-', count);
+		num = -num;
+	}
+	int_part = (int)num;
+	dec_part = (int)((num - int_part) * 100 + 0.5f);
+	ft_putnbr(int_part, count);
+	ft_putchar('.', count);
+	if (dec_part < 10)
+		ft_putchar('0', count);
+	ft_putnbr(dec_part, count);
+}

@@ -54,6 +54,8 @@ void	ft_percent(char c, va_list args, t_count *count)
 		ft_putnbr_base((size_t)va_arg(args, unsigned int), MAJ_HEX, count);
 	else if (c == '%')
 		ft_putchar('%', count);
+	else if (c == 'f')
+		ft_putfloat(va_arg(args, double), count);
 }
 
 int	ft_printf(const char *to_print, ...)

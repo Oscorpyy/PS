@@ -29,5 +29,5 @@ void	reverse_rotate_a(t_stack *stack)
 	stack->stack_a[0] = temp;
 	stack->total++;
 	stack->rra++;
-	printf("rra\n");
+	ft_printf("rra\n");
 }

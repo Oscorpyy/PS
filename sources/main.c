@@ -68,19 +68,19 @@ int	main(int argc, char **argv)
 	init_all(stack);
 	if (!stack->stack_a || only_one(stack) != 0)
 	{
-		printf("Error\n");
+		ft_printf("Error\n");
 		if (stack)
 			free(stack);
 		if (stack)
 			free(stack_a);
 		return (0);
 	}
-	printf("disorder = %f\n", disorder(stack));
+	ft_printf("disorder = %f\n", disorder(stack));
 	mode(argv, stack);
 	i = 0;
 	while (i < stack->len_a)
 	{
-		printf("stack[%i] = %i \n", i, stack->stack_a[i]);
+		ft_printf("stack[%i] = %i \n", i, stack->stack_a[i]);
 		i++;
 	}
 	if (stack)

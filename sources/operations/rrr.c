@@ -52,5 +52,5 @@ void	reverse_rotate_r(t_stack *stack)
 	rrb(stack);
 	stack->total++;
 	stack->rrr++;
-	printf("rrr\n");
+	ft_printf("rrr\n");
 }

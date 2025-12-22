@@ -40,5 +40,5 @@ void	swap_s(t_stack *stack)
 	sb(stack);
 	stack->total++;
 	stack->ss++;
-	printf("ss\n");
+	ft_printf("ss\n");
 }

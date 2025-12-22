@@ -13,7 +13,6 @@
 #ifndef PS_H
 # define PS_H
 
-# include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
@@ -39,6 +38,7 @@ typedef struct s_stack
 }	t_stack;
 
 int		*args_to_int(char **str, int strlen);
+int		ft_printf(const char *to_print, ...);
 int		ft_strcmp(const char *s1, const char *s2);
 int		*indexation(t_stack *stack);
 long	ft_atol(const char *str);

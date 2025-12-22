@@ -34,6 +34,7 @@ void	ft_putchar(char c, t_count *count);
 void	ft_putstr(char *s, t_count *count);
 void	ft_putnbr(long long num, t_count *count);
 void	ft_putnbr_base(size_t n, char	*base, t_count *count);
+void	ft_putfloat(float num, t_count *count);
 size_t	ft_strlen(const char *str);
 
 #endif

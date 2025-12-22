@@ -29,5 +29,5 @@ void	rotate_b(t_stack *stack)
 	stack->stack_b[i] = temp;
 	stack->total++;
 	stack->rb++;
-	printf("rb\n");
+	ft_printf("rb\n");
 }
