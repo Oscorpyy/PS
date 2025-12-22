@@ -36,10 +36,10 @@ static int	only_one(t_stack *stack)
 
 	error = 0;
 	i = 0;
-	while(i < stack->len_a)
+	while (i < stack->len_a)
 	{
 		j = i + 1;
-		while(j < stack->len_a)
+		while (j < stack->len_a)
 		{
 			if (stack->stack_a[i] == stack->stack_a[j])
 				error++;
@@ -70,9 +70,9 @@ int	main(int argc, char **argv)
 	{
 		printf("Error\n");
 		if (stack)
-		free(stack);
+			free(stack);
 		if (stack)
-		free(stack_a);
+			free(stack_a);
 		return (0);
 	}
 	mode(argv, stack);
@@ -83,8 +83,8 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	printf("disorder = %f\n", disorder(stack));
-	printf("total %i\n", stack->pa + stack->pb + stack->rb + stack->ra);
-	printf("total pa:%i pb:%i rb:%i ra:%i rrb:%i \n", stack->pa, stack->pb , stack->rb , stack->ra, stack->rrb);
+	// printf("total %i\n", stack->pa + stack->pb + stack->rb + stack->ra);
+	// printf("total pa:%i pb:%i rb:%i ra:%i rrb:%i \n", stack->pa, stack->pb , stack->rb , stack->ra, stack->rrb);
 	if (stack)
 		free(stack);
 	if (stack)

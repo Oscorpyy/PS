@@ -40,7 +40,7 @@ static void	compare(t_stack *stack, int i)
 		rotate_a(stack);
 }
 
-void	radix(t_stack *stack)
+void	radix_sort(t_stack *stack)
 {
 	int	i;
 	int	j;

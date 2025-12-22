@@ -43,7 +43,7 @@ int		ft_strcmp(const char *s1, const char *s2);
 int		*indexation(t_stack *stack);
 long	ft_atol(const char *str);
 void	bucket_sort_simple(t_stack *stack);
-void	radix(t_stack *stack);
+void	radix_sort(t_stack *stack);
 void	push_a(t_stack *stack);
 void	push_b(t_stack *stack);
 void	swap_a(t_stack *stack);

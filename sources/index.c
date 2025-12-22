@@ -38,7 +38,6 @@ static void sort_int_tab(int *tab, int size)
 
 int	*indexation(t_stack *stack)
 {
-	int	*ranked_tab;
 	int *temp_tab;
 	int	i;
 	int	j;
@@ -50,20 +49,18 @@ int	*indexation(t_stack *stack)
 	while (++i < stack->len_a)
 		temp_tab[i] = stack->stack_a[i];
 	sort_int_tab(temp_tab, stack->len_a);
-	i = 0;
-	while (i < stack->len_a)
+	i = -1;
+	while (++i < stack->len_a)
 	{
-		j = 0;
+		j = -1;
 		while (j < stack->len_a)
 		{
-			if (stack->stack_a[i] == temp_tab[j])
+			if (stack->stack_a[i] == temp_tab[++j])
 			{
 				stack->stack_a[i] = j;
 				break;
 			}
-			j++;
 		}
-		i++;
 	}
 	return (temp_tab);
 }

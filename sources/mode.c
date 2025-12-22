@@ -15,18 +15,18 @@
 void	mode(char	**str, t_stack *stack)
 {
 	int		i;
-	// int		j;
+
+	char	*adap_algo_mode;
 
 	i = 0;
-	// j = 0;
 	while ((str[i] && str[i][0] != '-') || (str[i] && str [i][1] != '-'))
 		i++;
 	if (ft_strcmp(str[i], "--simple") == 0)
-		printf("selection_sort(stack);");
+		selection_sort(stack);
 	else if (ft_strcmp(str[i], "--medium") == 0)
 		bucket_sort_simple(stack);
 	else if (ft_strcmp(str[i], "--complex") == 0)
-		radix(stack);
+		radix_sort(stack);
 	else if (ft_strcmp(str[i], "--bench") == 0)
 	{
 		if (!str[i + 1])
@@ -34,7 +34,10 @@ void	mode(char	**str, t_stack *stack)
 		else
 			benchmode(stack, str[i + 1]);
 	}
-	// else
-	// 	printf("adap_algo_mode = adaptive_algo(stack);");
-	//adaptive_algo(stack);
+	else
+	{
+		adap_algo_mode = adaptive_algo(stack);
+		(void)adap_algo_mode;
+	}
+	adaptive_algo(stack);
 }

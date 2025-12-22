@@ -19,17 +19,17 @@ char	*adaptive_algo(t_stack *stack)
 	numdis = disorder(stack);
 	if (numdis < 0.2)
 	{
-		// selection_sort(stack);
+		selection_sort(stack);
 		return ("--simple");
 	}
 	else if (0.2 <= numdis && numdis < 0.5)
 	{
-		// bucket_sort_simple(stack);
+		bucket_sort_simple(stack);
 		return ("--medium");
 	}
 	else
 	{
-		// radix(stack);
+		radix_sort(stack);
 		return ("--complex");
 	}
 }

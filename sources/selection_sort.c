@@ -12,14 +12,14 @@
 
 #include "../includes/ps.h"
 
-static void	push_min(t_stack *stack, int min, int bool)
+static void	push_min(t_stack *stack, int min, int method)
 {
-	if (bool == 1)
+	if (method == 1)
 	{
 		while (min != stack->stack_a[0])
 			rotate_a(stack);
 	}
-	else if (bool == 2)
+	else if (method == 2)
 	{
 		while (min != stack->stack_a[0])
 			reverse_rotate_a(stack);
