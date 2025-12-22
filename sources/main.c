@@ -79,6 +79,7 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	stack->stack_a = init_all(stack, argv, argc);
+	ft_printf("disorder before sort : %i\n", disorder(stack));
 	if (!stack->stack_a || only_one(stack) != 0 || mode(argv, stack) == 1)
 	{
 		free_all(stack, 1);
@@ -90,5 +91,6 @@ int	main(int argc, char **argv)
 		ft_printf("stack[%i] = %i \n", i, stack->stack_a[i]);
 		i++;
 	}
+	ft_printf("disorder after sort : %i\n", disorder(stack));
 	free_all(stack, 0);
 }
