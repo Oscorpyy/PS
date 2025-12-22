@@ -70,6 +70,7 @@ void	free_all(t_stack *stack, int i)
 int	main(int argc, char **argv)
 {
 	int		i;
+	int		*stack_a;
 	t_stack	*stack;
 
 	stack = malloc(sizeof(t_stack));
@@ -78,7 +79,8 @@ int	main(int argc, char **argv)
 		ft_printf("Error\n");
 		return (0);
 	}
-	stack->stack_a = init_all(stack, argv, argc);
+	stack_a = init_all(stack, argv, argc);
+	stack->stack_a = stack_a;
 	ft_printf("disorder before sort : %f\n", disorder(stack));
 	if (!stack->stack_a || only_one(stack) != 0 || mode(argv, stack) == 1)
 	{
@@ -92,5 +94,6 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	ft_printf("disorder after sort : %f\n", disorder(stack));
+	free(stack_a);
 	free_all(stack, 0);
 }
