@@ -6,7 +6,7 @@
 #    By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/23 01:26:23 by azazel            #+#    #+#              #
-#    Updated: 2025/12/23 19:59:06 by azazel           ###   ########lyon.fr    #
+#    Updated: 2025/12/23 22:46:33 by azazel           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,8 +32,10 @@ OP_FILES	= pa.c pb.c \
 
 # Main source files located in sources/
 SRC_FILES	= main.c \
-			  args_parser.c
-
+			  args_parser.c \
+			  stack_init.c \
+			  ft_atol.c
+			  
 SRCS		= $(addprefix $(SRC_DIR)/, $(SRC_FILES)) \
 			  $(addprefix $(OP_DIR)/, $(OP_FILES))
 
