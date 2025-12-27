@@ -6,14 +6,12 @@
 /*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 20:20:38 by azazel            #+#    #+#             */
-/*   Updated: 2025/12/27 00:05:33 by azazel           ###   ########lyon.fr   */
+/*   Updated: 2025/12/27 18:52:32 by azazel           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "../includes/checker.h"
 #include "../includes/get_next_line.h"
-#include "../../libft/libft.h"
 
 static void	free_all(t_stack *stack, int* stack_a, int i) 
 {
@@ -125,7 +123,6 @@ int	main(int argc, char **argv)
 		}
 		free(line);
 	}
-	// get_next_line(-1);
 	for (int i = 0; i < stack->len_a; i++) // leeeee deeeeeebuuuuuuug
 	{
 		ft_printf("stack[%i]: %i\n", i, stack->stack_a[i]);

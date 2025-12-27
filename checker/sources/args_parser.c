@@ -6,14 +6,14 @@
 /*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 18:22:02 by azazel            #+#    #+#             */
-/*   Updated: 2025/12/23 23:08:03 by azazel           ###   ########lyon.fr   */
+/*   Updated: 2025/12/27 18:54:02 by azazel           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/checker.h"
 #include "../../libft/libft.h"
 
-int is_args_good(char	**argv)
+int	is_args_good(char	**argv)
 {
 	int	i;
 	int	y;
@@ -32,5 +32,5 @@ int is_args_good(char	**argv)
 		}
 		i++;
 	}
-    return (0);
+	return (0);
 }

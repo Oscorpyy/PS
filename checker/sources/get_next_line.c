@@ -6,7 +6,7 @@
 /*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 23:59:06 by azazel            #+#    #+#             */
-/*   Updated: 2025/12/27 00:03:09 by azazel           ###   ########lyon.fr   */
+/*   Updated: 2025/12/27 18:53:22 by azazel           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static char	*read_to_stash(int fd, char *stash)
 		if (read_return == -1)
 			return (ft_free_stash(read_str, stash));
 		if (read_return == 0 && (!stash || *stash == '\0'))
-			return(ft_free_stash(stash, read_str));
+			return (ft_free_stash(stash, read_str));
 		read_str[read_return] = '\0';
 		stash = ft_strjoin_gnl(stash, read_str, read_return, i);
 		if (!stash)
