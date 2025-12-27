@@ -6,7 +6,7 @@
 #    By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/23 01:26:23 by azazel            #+#    #+#              #
-#    Updated: 2025/12/23 22:46:33 by azazel           ###   ########lyon.fr    #
+#    Updated: 2025/12/26 16:58:00 by azazel           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,10 @@ OP_FILES	= pa.c pb.c \
 SRC_FILES	= main.c \
 			  args_parser.c \
 			  stack_init.c \
-			  ft_atol.c
+			  ft_atol.c \
+			  get_next_line.c \
+			  get_next_line_utils.c \
+			  ft_strcmp.c
 			  
 SRCS		= $(addprefix $(SRC_DIR)/, $(SRC_FILES)) \
 			  $(addprefix $(OP_DIR)/, $(OP_FILES))

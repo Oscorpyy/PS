@@ -6,11 +6,10 @@
 /*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 20:24:26 by azazel            #+#    #+#             */
-/*   Updated: 2025/12/23 22:45:55 by azazel           ###   ########lyon.fr   */
+/*   Updated: 2025/12/26 18:59:43 by azazel           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ps.h"
 #include "../includes/checker.h"
 
 int	only_num(char *str)

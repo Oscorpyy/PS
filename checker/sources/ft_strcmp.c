@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   args_parser.c                                      :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/23 18:22:02 by azazel            #+#    #+#             */
-/*   Updated: 2025/12/23 23:08:03 by azazel           ###   ########lyon.fr   */
+/*   Created: 2025/12/26 16:57:11 by azazel            #+#    #+#             */
+/*   Updated: 2025/12/26 16:57:32 by azazel           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/checker.h"
-#include "../../libft/libft.h"
 
-int is_args_good(char	**argv)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	int	i;
-	int	y;
+	size_t	i;
 
-	i = 1;
-	while (argv[i])
+	i = 0;
+	if (!s1 || !s2)
+		return (1);
+	while (s1[i] || s2[i])
 	{
-		y = 0;
-		while (argv[i][y])
-		{
-			if (argv[i][0] == '-')
-				y = 1;
-			if (ft_isdigit(argv[i][y]) == 0)
-				return (ERROR);
-			y++;
-		}
+		if ((unsigned char)s1[i] != (unsigned char)s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		i++;
 	}
-    return (0);
+	return (0);
 }
