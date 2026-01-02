@@ -6,7 +6,7 @@
 /*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 20:20:38 by azazel            #+#    #+#             */
-/*   Updated: 2025/12/27 18:52:32 by azazel           ###   ########lyon.fr   */
+/*   Updated: 2026/01/02 14:54:19 by azazel           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,11 @@ int	main(int argc, char **argv)
 	{
 		ft_printf("stack[%i]: %i\n", i, stack->stack_a[i]);
 	}
-	
+	if (stack->len_b > 0)
+	{
+		ft_printf("KO");
+		return (0);
+	}
 	i = 0;
 	while (i < stack->len_a - 1)
 	{

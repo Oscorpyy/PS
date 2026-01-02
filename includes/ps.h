@@ -6,7 +6,7 @@
 /*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 10:46:37 by lgoderne          #+#    #+#             */
-/*   Updated: 2025/12/21 22:51:57 by azazel           ###   ########lyon.fr   */
+/*   Updated: 2026/01/02 14:46:27 by azazel           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	swap_s(t_stack *stack);
 void	rotate_a(t_stack *stack);
 void	rotate_b(t_stack *stack);
 void	rotate_r(t_stack *stack);
+void	quick_sort(t_stack *stack);
 void	radix_sort(t_stack *stack);
 void	selection_sort(t_stack *stack);
 void	reverse_rotate_a(t_stack *stack);

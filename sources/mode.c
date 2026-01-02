@@ -6,7 +6,7 @@
 /*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 18:49:29 by opernod           #+#    #+#             */
-/*   Updated: 2025/12/21 12:36:26 by azazel           ###   ########lyon.fr   */
+/*   Updated: 2026/01/02 14:46:59 by azazel           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	mode(char	**str, t_stack *stack)
 	else if (ft_strcmp(str[i], "--medium") == 0)
 		bucket_sort_simple(stack);
 	else if (ft_strcmp(str[i], "--complex") == 0)
-		radix_sort(stack);
+		quick_sort(stack);
 	else if (ft_strcmp(str[i], "--adaptive") == 0)
 		adaptive_algo(stack);
 	else if (ft_strcmp(str[i], "--bench") == 0)

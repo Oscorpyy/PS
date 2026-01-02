@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+         #
+#    By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/17 15:35:41 by opernod           #+#    #+#              #
-#    Updated: 2025/12/22 13:35:19 by opernod          ###   ########lyon.fr    #
+#    Updated: 2026/01/02 14:47:29 by azazel           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ SRC_FILES	= adaptive.c \
 			  main.c \
 			  mode.c \
 			  radix_sort.c \
+			  quick_sort.c \
 			  selection_sort.c
 
 SRCS		= $(addprefix $(SRC_DIR)/, $(SRC_FILES)) \
