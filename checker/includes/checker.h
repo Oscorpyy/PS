@@ -6,7 +6,7 @@
 /*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 18:22:30 by azazel            #+#    #+#             */
-/*   Updated: 2025/12/27 18:54:49 by azazel           ###   ########lyon.fr   */
+/*   Updated: 2026/01/03 11:32:29 by azazel           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ int	get_len_stack(char	**str, int len_str);
 int	*args_to_int(char **str, int strlen);
 int	only_one(t_stack *stack);
 int	only_num(char *str);
+int	compare_execute(char *line, t_stack *stack);
 
 #endif

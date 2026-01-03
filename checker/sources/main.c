@@ -6,14 +6,14 @@
 /*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 20:20:38 by azazel            #+#    #+#             */
-/*   Updated: 2026/01/02 14:54:19 by azazel           ###   ########lyon.fr   */
+/*   Updated: 2026/01/03 11:30:28 by azazel           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/checker.h"
 #include "../includes/get_next_line.h"
 
-static void	free_all(t_stack *stack, int* stack_a, int i) 
+static void	free_all(t_stack *stack, int *stack_a, int i)
 {
 	if (i == 1)
 		ft_printf("Error\n");
@@ -24,109 +24,10 @@ static void	free_all(t_stack *stack, int* stack_a, int i)
 	return ;
 }
 
-static int	compare_execute(char *line, t_stack *stack)
+static int	check_is_stack_sorted_stackb_empty(t_stack *stack, int *temp_stack)
 {
-	if (ft_strcmp(line, "pa\n") == 0)
-	{
-		push_a(stack);
-		return (0);
-	}
-	else if (ft_strcmp(line, "pb\n") == 0)
-	{
-		push_b(stack);
-		return (0);
-	}
-	else if (ft_strcmp(line, "ra\n") == 0)
-	{
-		rotate_a(stack);
-		return (0);
-	}
-	else if (ft_strcmp(line, "rb\n") == 0)
-	{
-		rotate_b(stack);
-		return (0);
-	}
-	else if (ft_strcmp(line, "rr\n") == 0)
-	{
-		rotate_r(stack);
-		return (0);
-	}
-	else if (ft_strcmp(line, "rra\n") == 0)
-	{
-		reverse_rotate_a(stack);
-		return (0);
-	}
-	else if (ft_strcmp(line, "rrb\n") == 0)
-	{
-		reverse_rotate_b(stack);
-		return (0);
-	}
-	else if (ft_strcmp(line, "rrr\n") == 0)
-	{
-		reverse_rotate_r(stack);
-		return (0);
-	}
-	else if (ft_strcmp(line, "sa\n") == 0)
-	{
-		swap_a(stack);
-		return (0);
-	}
-	else if (ft_strcmp(line, "sb\n") == 0)
-	{
-		swap_b(stack);
-		return (0);
-	}
-	else if (ft_strcmp(line, "ss\n") == 0)
-	{
-		swap_s(stack);
-		return (0);
-	}
-	return (ERROR);	
-}
+	int	i;
 
-int	main(int argc, char **argv)
-{
-	int		*temp_stack;
-	t_stack	*stack;
-	char	*line;
-	int		i;
-
-	if (argc < 2)
-		return (0);
-	if (is_args_good(argv) == ERROR)
-	{
-		ft_printf("Error");
-		return (ERROR);
-	}
-	stack = malloc(sizeof(t_stack));
-	if (!stack)
-		return (ERROR);
-	temp_stack = init_all(stack, argv, argc);
-	stack->stack_a = temp_stack;
-	if (!stack->stack_a || only_one(stack) != 0)
-	{
-		free_all(stack, temp_stack, 1);
-		return (ERROR);
-	}
-	while (1)
-	{
-		line = get_next_line(0);
-		if (!line)
-			 break;
-		else if (compare_execute(line, stack) != 0)
-		{
-			ft_printf("Error");
-			free(line);
-			get_next_line(-1);
-			free_all(stack, temp_stack, 0);
-			return (ERROR);
-		}
-		free(line);
-	}
-	for (int i = 0; i < stack->len_a; i++) // leeeee deeeeeebuuuuuuug
-	{
-		ft_printf("stack[%i]: %i\n", i, stack->stack_a[i]);
-	}
 	if (stack->len_b > 0)
 	{
 		ft_printf("KO");
@@ -139,10 +40,68 @@ int	main(int argc, char **argv)
 		{
 			ft_printf("KO");
 			free_all(stack, temp_stack, 0);
-			return (0);
+			return (1);
 		}
 		i++;
 	}
+	return (0);
+}
+
+static int	get_input(t_stack *stack, int *temp_stack)
+{
+	char	*line;
+
+	while (1)
+	{
+		line = get_next_line(0);
+		if (!line)
+			break ;
+		else if (compare_execute(line, stack) != 0)
+		{
+			ft_printf("Error");
+			free(line);
+			get_next_line(-1);
+			free_all(stack, temp_stack, 0);
+			return (ERROR);
+		}
+		free(line);
+	}
+	return (0);
+}
+
+static int	check_argument(int argc, char **argv)
+{
+	if (argc < 2)
+		return (ERROR);
+	if (is_args_good(argv) == ERROR)
+	{
+		ft_printf("Error");
+		return (ERROR);
+	}
+	return (0);
+}
+
+int	main(int argc, char **argv)
+{
+	int		*temp_stack;
+	t_stack	*stack;
+
+	if (check_argument(argc, argv) == ERROR)
+		return (ERROR);
+	stack = malloc(sizeof(t_stack));
+	if (!stack)
+		return (ERROR);
+	temp_stack = init_all(stack, argv, argc);
+	stack->stack_a = temp_stack;
+	if (!stack->stack_a || only_one(stack) != 0)
+	{
+		free_all(stack, temp_stack, 1);
+		return (ERROR);
+	}
+	if (get_input(stack, temp_stack) == ERROR)
+		return (ERROR);
+	if (check_is_stack_sorted_stackb_empty(stack, temp_stack) == 1)
+		return (0);
 	ft_printf("OK");
 	free_all(stack, temp_stack, 0);
 	return (0);

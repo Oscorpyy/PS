@@ -6,7 +6,7 @@
 #    By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/23 01:26:23 by azazel            #+#    #+#              #
-#    Updated: 2025/12/26 16:58:00 by azazel           ###   ########lyon.fr    #
+#    Updated: 2026/01/03 11:31:43 by azazel           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,8 @@ SRC_FILES	= main.c \
 			  ft_atol.c \
 			  get_next_line.c \
 			  get_next_line_utils.c \
-			  ft_strcmp.c
+			  ft_strcmp.c \
+			  compare_execute.c
 			  
 SRCS		= $(addprefix $(SRC_DIR)/, $(SRC_FILES)) \
 			  $(addprefix $(OP_DIR)/, $(OP_FILES))
