@@ -6,7 +6,7 @@
 /*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 10:46:37 by lgoderne          #+#    #+#             */
-/*   Updated: 2026/01/02 14:46:27 by azazel           ###   ########lyon.fr   */
+/*   Updated: 2026/01/03 12:08:26 by azazel           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int		ft_printf(const char *to_print, ...);
 int		benchmode(t_stack *stack, char *mode);
 int		get_len_stack(char	**str, int len_str);
 int		ft_strcmp(const char *s1, const char *s2);
+int		is_sorted(int *stack, int len);
+int		get_median_pivot(int *stack_tab, int len);
 long	ft_atol(const char *str);
 void	push_a(t_stack *stack);
 void	push_b(t_stack *stack);
@@ -54,6 +56,8 @@ void	rotate_a(t_stack *stack);
 void	rotate_b(t_stack *stack);
 void	rotate_r(t_stack *stack);
 void	quick_sort(t_stack *stack);
+void	quick_sort_a(t_stack *stack, int len);
+void	quick_sort_b(t_stack *stack, int len);
 void	radix_sort(t_stack *stack);
 void	selection_sort(t_stack *stack);
 void	reverse_rotate_a(t_stack *stack);

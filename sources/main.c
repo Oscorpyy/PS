@@ -6,7 +6,7 @@
 /*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 15:35:00 by antigravity       #+#    #+#             */
-/*   Updated: 2025/12/21 15:22:00 by azazel           ###   ########lyon.fr   */
+/*   Updated: 2026/01/03 13:02:55 by azazel           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static int	only_one(t_stack *stack)
 	return (error);
 }
 
-static void	free_all(t_stack *stack, int* stack_a, int i)
+static void	free_all(t_stack *stack, int *stack_a, int i)
 {
 	if (i == 1)
 		ft_printf("Error\n");
@@ -71,7 +71,6 @@ static void	free_all(t_stack *stack, int* stack_a, int i)
 
 int	main(int argc, char **argv)
 {
-	// int		i;
 	int		*stack_a;
 	t_stack	*stack;
 
@@ -89,12 +88,6 @@ int	main(int argc, char **argv)
 		free_all(stack, stack_a, 1);
 		return (0);
 	}
-	// i = 0;
-	// while (i < stack->len_a)
-	// {
-	// 	ft_printf("stack[%i] = %i \n", i, stack->stack_a[i]);
-	// 	i++;
-	// }
 	ft_printf("disorder after sort : %f\n", disorder(stack));
 	free_all(stack, stack_a, 0);
 }

@@ -6,7 +6,7 @@
 #    By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/17 15:35:41 by opernod           #+#    #+#              #
-#    Updated: 2026/01/02 14:47:29 by azazel           ###   ########lyon.fr    #
+#    Updated: 2026/01/03 12:04:40 by azazel           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,9 @@ SRC_FILES	= adaptive.c \
 			  mode.c \
 			  radix_sort.c \
 			  quick_sort.c \
+			  quick_sort_a.c \
+			  quick_sort_b.c \
+			  quick_sort_utils.c \
 			  selection_sort.c
 
 SRCS		= $(addprefix $(SRC_DIR)/, $(SRC_FILES)) \
