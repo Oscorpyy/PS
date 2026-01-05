@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 15:46:46 by opernod           #+#    #+#             */
-/*   Updated: 2026/01/05 14:40:04 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/05 15:24:38 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*adaptive_algo(t_stack *stack)
 
 static void	printf_bench(t_stack *stack, float numdis, char *mode, char *On)
 {
-	ft_printf("[bench] disorder: %f%%\n", 2, numdis);
+	ft_printf("[bench] disorder: %f%%\n", 2, (numdis * 100));
 	ft_printf("[bench] strategy: %s / %s\n", 2, mode, On);
 	ft_printf("[bench] total_ops: %i\n", 2, stack->total);
 	ft_printf("[bench] sa: %i, sb: %i, ", 2, stack->sa, stack->sb);
