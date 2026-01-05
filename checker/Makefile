@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+         #
+#    By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/23 01:26:23 by azazel            #+#    #+#              #
-#    Updated: 2026/01/03 11:31:43 by azazel           ###   ########lyon.fr    #
+#    Updated: 2026/01/05 12:23:23 by opernod          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,13 +24,11 @@ PRINTF		= $(PRINTF_DIR)/libftprintf.a
 SRC_DIR		= sources
 OP_DIR		= ../sources/operations
 
-# Operations files located in sources/operations
 OP_FILES	= pa.c pb.c \
 			  ra.c rb.c rr.c \
 			  rra.c rrb.c rrr.c \
 			  sa.c sb.c ss.c
 
-# Main source files located in sources/
 SRC_FILES	= main.c \
 			  args_parser.c \
 			  stack_init.c \

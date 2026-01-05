@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:14:04 by opernod           #+#    #+#             */
-/*   Updated: 2025/12/18 14:39:47 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/05 14:48:05 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ void	push_b(t_stack *stack)
 	stack->len_b++;
 	stack->total++;
 	stack->pb++;
-	ft_printf("pb\n");
+	ft_printf("pb\n", 1);
 }

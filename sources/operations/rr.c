@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:19:43 by opernod           #+#    #+#             */
-/*   Updated: 2025/12/18 14:40:16 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/05 14:48:14 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,5 @@ void	rotate_r(t_stack *stack)
 	rb(stack);
 	stack->total++;
 	stack->rr++;
-	ft_printf("rr\n");
+	ft_printf("rr\n", 1);
 }

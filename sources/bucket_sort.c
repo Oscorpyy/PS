@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bucket_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 16:27:04 by lgoderne          #+#    #+#             */
-/*   Updated: 2025/12/21 22:51:20 by azazel           ###   ########lyon.fr   */
+/*   Updated: 2026/01/05 14:58:33 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ void	bucket_sort_simple(t_stack *stack)
 	int	max_pos;
 	int	*tmp_tab;
 
+	if (disorder(stack) == 0)
+		return ;
 	tmp_tab = indexation(stack);
 	range = ft_sqrt(stack->len_a);
 	loop_stack_a(stack, range);

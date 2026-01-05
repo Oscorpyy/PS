@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:22:00 by opernod           #+#    #+#             */
-/*   Updated: 2025/12/18 14:40:34 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/05 14:48:19 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ void	reverse_rotate_b(t_stack *stack)
 	stack->stack_b[0] = temp;
 	stack->total++;
 	stack->rrb++;
-	ft_printf("rrb\n");
+	ft_printf("rrb\n", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 15:03:28 by opernod           #+#    #+#             */
-/*   Updated: 2025/12/18 16:51:59 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/05 14:58:16 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ static void	where_min(t_stack *stack)
 
 void	selection_sort(t_stack *stack)
 {
+	if (disorder(stack) == 0)
+		return ;
 	while (stack->len_a > 0)
 		where_min(stack);
 	while (stack->len_b > 0)

@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 15:46:46 by opernod           #+#    #+#             */
-/*   Updated: 2025/12/18 19:36:28 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/05 14:40:04 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ char	*adaptive_algo(t_stack *stack)
 
 static void	printf_bench(t_stack *stack, float numdis, char *mode, char *On)
 {
-	ft_printf("[bench] disorder: %f%%\n", numdis);
-	ft_printf("[bench] strategy: %s / %s\n", mode, On);
-	ft_printf("[bench] total_ops: %i\n", stack->total);
-	ft_printf("[bench] sa: %i, sb: %i, ", stack->sa, stack->sb);
-	ft_printf("ss: %i, pa: %i, pb: %i\n", stack->ss, stack->pa, stack->pb);
-	ft_printf("[bench] ra: %i, rb: %i, ", stack->ra, stack->rb);
-	ft_printf("rr: %i, rra: %i, rrb: %i", stack->rr, stack->rra, stack->rrb);
-	ft_printf(", rrr: %i\n", stack->rr);
+	ft_printf("[bench] disorder: %f%%\n", 2, numdis);
+	ft_printf("[bench] strategy: %s / %s\n", 2, mode, On);
+	ft_printf("[bench] total_ops: %i\n", 2, stack->total);
+	ft_printf("[bench] sa: %i, sb: %i, ", 2, stack->sa, stack->sb);
+	ft_printf("ss: %i, pa: %i, pb: %i\n", 2, stack->ss, stack->pa, stack->pb);
+	ft_printf("[bench] ra: %i, rb: %i, ", 2, stack->ra, stack->rb);
+	ft_printf("rr: %i, rra: %i, rrb: %i", 2, stack->rr, stack->rra, stack->rrb);
+	ft_printf(", rrr: %i\n", 2, stack->rr);
 }
 
 static void	infos_bench(t_stack *stack, float numdis, char *mode, int ada)

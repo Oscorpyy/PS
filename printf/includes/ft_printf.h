@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 11:59:45 by opernod           #+#    #+#             */
-/*   Updated: 2025/11/18 11:18:47 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/05 14:55:51 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ typedef struct s_count
 	int				error;
 }					t_count;
 
-int		ft_printf(const char *str, ...) __attribute__((format(printf, 1, 2)));
-void	printp(void *point, t_count *count);
-void	ft_percent(char c, va_list args, t_count *count);
-void	ft_putchar(char c, t_count *count);
-void	ft_putstr(char *s, t_count *count);
-void	ft_putnbr(long long num, t_count *count);
-void	ft_putnbr_base(size_t n, char	*base, t_count *count);
-void	ft_putfloat(float num, t_count *count);
+int		ft_printf(const char *str, int fd, ...);
+void	printp(int fd, void *point, t_count *count);
+void	ft_percent(int fd, char c, va_list args, t_count *count);
+void	ft_putchar(int fd, char c, t_count *count);
+void	ft_putstr(int fd, char *s, t_count *count);
+void	ft_putnbr(int fd, long long num, t_count *count);
+void	ft_putnbr_base(int fd, size_t n, char	*base, t_count *count);
+void	ft_putfloat(int fd, float num, t_count *count);
 size_t	ft_strlen(const char *str);
 
 #endif

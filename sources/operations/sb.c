@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:07:33 by opernod           #+#    #+#             */
-/*   Updated: 2025/12/18 14:40:57 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/05 14:48:28 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ void	swap_b(t_stack *stack)
 	stack->stack_b[1] = tmp;
 	stack->total++;
 	stack->sb++;
-	ft_printf("sb\n");
+	ft_printf("sb\n", 1);
 }

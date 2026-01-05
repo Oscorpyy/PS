@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   radix.c                                            :+:      :+:    :+:   */
+/*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 13:01:21 by lgoderne          #+#    #+#             */
-/*   Updated: 2025/12/21 22:19:46 by azazel           ###   ########lyon.fr   */
+/*   Updated: 2026/01/05 14:58:28 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void	radix_sort(t_stack *stack)
 	int	*tmp_tab;
 	int	max_bits;
 
+	if (disorder(stack) == 0)
+		return ;
 	tmp_tab = indexation(stack);
 	max_bits = calc_max_bits(stack);
 	i = -1;

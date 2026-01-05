@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 10:46:37 by lgoderne          #+#    #+#             */
-/*   Updated: 2026/01/03 12:08:26 by azazel           ###   ########lyon.fr   */
+/*   Updated: 2026/01/05 14:38:33 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_stack
 int		*indexation(t_stack *stack);
 int		mode(char	**str, t_stack *stack);
 int		*args_to_int(char **str, int strlen);
-int		ft_printf(const char *to_print, ...);
+int		ft_printf(const char *to_print, int fd, ...);
 int		benchmode(t_stack *stack, char *mode);
 int		get_len_stack(char	**str, int len_str);
 int		ft_strcmp(const char *s1, const char *s2);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 15:35:00 by antigravity       #+#    #+#             */
-/*   Updated: 2026/01/03 13:02:55 by azazel           ###   ########lyon.fr   */
+/*   Updated: 2026/01/05 14:39:11 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static int	only_one(t_stack *stack)
 static void	free_all(t_stack *stack, int *stack_a, int i)
 {
 	if (i == 1)
-		ft_printf("Error\n");
+		ft_printf("Error\n", 1);
 	if (stack)
 		free(stack);
 	if (stack_a)
@@ -77,17 +77,15 @@ int	main(int argc, char **argv)
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
 	{
-		ft_printf("Error\n");
+		ft_printf("Error\n", 1);
 		return (0);
 	}
 	stack_a = init_all(stack, argv, argc);
 	stack->stack_a = stack_a;
-	ft_printf("disorder before sort : %f\n", disorder(stack));
 	if (!stack->stack_a || only_one(stack) != 0 || mode(argv, stack) == 1)
 	{
 		free_all(stack, stack_a, 1);
 		return (0);
 	}
-	ft_printf("disorder after sort : %f\n", disorder(stack));
 	free_all(stack, stack_a, 0);
 }
