@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 15:35:00 by antigravity       #+#    #+#             */
-/*   Updated: 2026/01/05 14:39:11 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/05 16:33:09 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	*init_all(t_stack *stack, char **argv, int argc)
 {
 	int		*stack_a;
-	int		stack_b[1000];
+	int		stack_b[10000];
 
 	stack_a = args_to_int(argv, argc);
 	stack->stack_b = stack_b;
