@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/23 20:24:26 by azazel            #+#    #+#             */
-/*   Updated: 2025/12/26 18:59:43 by azazel           ###   ########lyon.fr   */
+/*   Created: 2025/12/23 20:24:26 by lgoderne          #+#    #+#             */
+/*   Updated: 2026/01/06 12:25:10 by lgoderne         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 

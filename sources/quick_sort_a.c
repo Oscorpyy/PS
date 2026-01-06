@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/03 12:02:28 by azazel            #+#    #+#             */
-/*   Updated: 2026/01/03 13:23:33 by azazel           ###   ########lyon.fr   */
+/*   Created: 2026/01/03 12:02:28 by lgoderne          #+#    #+#             */
+/*   Updated: 2026/01/06 12:28:58 by lgoderne         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   compare_execute.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/03 11:30:06 by azazel            #+#    #+#             */
-/*   Updated: 2026/01/03 11:43:34 by azazel           ###   ########lyon.fr   */
+/*   Created: 2026/01/03 11:30:06 by lgoderne          #+#    #+#             */
+/*   Updated: 2026/01/06 12:26:27 by lgoderne         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 

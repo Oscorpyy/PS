@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/29 23:59:06 by azazel            #+#    #+#             */
-/*   Updated: 2026/01/05 11:38:28 by opernod          ###   ########lyon.fr   */
+/*   Created: 2025/11/29 23:59:06 by lgoderne          #+#    #+#             */
+/*   Updated: 2026/01/06 12:25:27 by lgoderne         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 

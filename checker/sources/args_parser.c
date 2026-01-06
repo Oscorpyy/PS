@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   args_parser.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/23 18:22:02 by azazel            #+#    #+#             */
-/*   Updated: 2025/12/27 18:54:02 by azazel           ###   ########lyon.fr   */
+/*   Created: 2025/12/23 18:22:02 by lgoderne          #+#    #+#             */
+/*   Updated: 2026/01/06 12:27:48 by lgoderne         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 

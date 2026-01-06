@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+         #
+#    By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/17 15:35:41 by opernod           #+#    #+#              #
-#    Updated: 2026/01/06 12:10:28 by opernod          ###   ########lyon.fr    #
+#    Updated: 2026/01/06 14:41:19 by lgoderne         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ PRINTF		= $(PRINTF_DIR)/libftprintf.a
 
 SRC_DIR		= sources
 OP_DIR		= operations
+CHECKER_DIR	= checker
 
 OP_FILES	= pa.c pb.c \
 			  ra.c rb.c rr.c \
@@ -63,15 +64,22 @@ $(PRINTF):
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@ -g
 
+bonus:
+	$(MAKE) -C $(CHECKER_DIR)
+
 clean:
 	$(RM) $(OBJS)
 	$(MAKE) -C $(LIBFT_DIR) clean
 	$(MAKE) -C $(PRINTF_DIR) clean
+	$(MAKE) -C $(CHECKER_DIR) clean
+
 
 fclean: clean
 	$(RM) $(NAME)
 	$(MAKE) -C $(LIBFT_DIR) fclean
 	$(MAKE) -C $(PRINTF_DIR) fclean
+	$(MAKE) -C $(CHECKER_DIR) fclean
+
 
 re: fclean all
 
