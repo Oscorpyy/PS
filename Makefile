@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+         #
+#    By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/17 15:35:41 by opernod           #+#    #+#              #
-#    Updated: 2026/01/03 12:04:40 by azazel           ###   ########lyon.fr    #
+#    Updated: 2026/01/05 17:57:34 by opernod          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
