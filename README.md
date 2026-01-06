@@ -122,9 +122,6 @@ High disorder (≥ 0.5): O(n log n) method
 -Quick Sort
 For highly disordered data, Quick Sort provides the best performance thanks to its average O(n log n) complexity.
 
-Threshold explanation: (!!justify your numbers!!)
-Internal design: (!!explain how disorder is computed and used!!)
-
 Performance
 
 Official requirements:
@@ -156,8 +153,8 @@ disorder between 20% and 50%:
 500 numbers: 2800/5200
 
 50% or more of disorder :
-100 numbers: 1084
-500 numbers: 6784
+100 numbers: 830/873
+500 numbers: 5900/6043
 
 
 Contributors
