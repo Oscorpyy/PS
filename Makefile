@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/17 15:35:41 by opernod           #+#    #+#              #
-#    Updated: 2026/01/06 14:41:19 by lgoderne         ###   ########lyon.fr    #
+#    Updated: 2026/01/06 15:22:03 by opernod          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,6 @@ SRC_FILES	= adaptive.c \
 			  index.c \
 			  main.c \
 			  mode.c \
-			  radix_sort.c \
 			  quick_sort.c \
 			  quick_sort_a.c \
 			  quick_sort_b.c \

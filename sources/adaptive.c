@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 15:46:46 by opernod           #+#    #+#             */
-/*   Updated: 2026/01/05 17:29:06 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/06 15:19:04 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*adaptive_algo(t_stack *stack)
 	}
 	else
 	{
-		radix_sort(stack);
+		quick_sort(stack);
 		return ("--complex");
 	}
 }
@@ -85,7 +85,7 @@ int	benchmode(t_stack *stack, char *mode)
 	else if (ft_strcmp(mode, "--medium") == 0)
 		bucket_sort_simple(stack);
 	else if (ft_strcmp(mode, "--complex") == 0)
-		radix_sort(stack);
+		quick_sort(stack);
 	else if (ft_strcmp(mode, "--adaptive") == 0)
 	{
 		mode = "";
