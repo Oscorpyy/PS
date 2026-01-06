@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bucket_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 16:27:04 by lgoderne          #+#    #+#             */
-/*   Updated: 2026/01/05 14:58:33 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/06 11:25:29 by lgoderne         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,19 +61,11 @@ static void	loop_stack_a(t_stack *stack, int range)
 	}
 }
 
-void	bucket_sort_simple(t_stack *stack)
+void	loop_stack_b(t_stack *stack)
 {
-	int	i;
-	int	range;
 	int	max;
 	int	max_pos;
-	int	*tmp_tab;
 
-	if (disorder(stack) == 0)
-		return ;
-	tmp_tab = indexation(stack);
-	range = ft_sqrt(stack->len_a);
-	loop_stack_a(stack, range);
 	while (stack->len_b > 0)
 	{
 		max = stack->len_b - 1;
@@ -85,6 +77,20 @@ void	bucket_sort_simple(t_stack *stack)
 		else
 			reverse_rotate_b(stack);
 	}
+}
+
+void	bucket_sort_simple(t_stack *stack)
+{
+	int	i;
+	int	range;
+	int	*tmp_tab;
+
+	if (disorder(stack) == 0)
+		return ;
+	tmp_tab = indexation(stack);
+	range = ft_sqrt(stack->len_a);
+	loop_stack_a(stack, range);
+	loop_stack_b(stack);
 	i = -1;
 	while (++i < stack->len_a)
 		stack->stack_a[i] = tmp_tab[stack->stack_a[i]];

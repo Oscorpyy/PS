@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 13:01:21 by lgoderne          #+#    #+#             */
-/*   Updated: 2026/01/05 14:58:28 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/06 11:46:04 by lgoderne         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,18 @@ static void	compare(t_stack *stack, int i)
 		rotate_a(stack);
 }
 
+static void	return_to_base_value(t_stack *stack, int *tmp_tab)
+{
+	int	i;
+
+	i = 0;
+	while (i < stack->len_a)
+	{
+		stack->stack_a[i] = tmp_tab[stack->stack_a[i]];
+		i++;
+	}
+}
+
 void	radix_sort(t_stack *stack)
 {
 	int	i;
@@ -62,11 +74,6 @@ void	radix_sort(t_stack *stack)
 		while (stack->len_b > 0)
 			push_a(stack);
 	}
-	i = 0;
-	while (i < stack->len_a)
-	{
-		stack->stack_a[i] = tmp_tab[stack->stack_a[i]];
-		i++;
-	}
+	return_to_base_value(stack, tmp_tab);
 	free(tmp_tab);
 }
