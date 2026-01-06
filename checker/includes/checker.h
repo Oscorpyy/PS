@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 18:22:30 by lgoderne          #+#    #+#             */
-/*   Updated: 2026/01/06 12:25:57 by lgoderne         ###   ########lyon.fr   */
+/*   Updated: 2026/01/06 15:08:06 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
