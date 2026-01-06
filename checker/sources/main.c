@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azazel <azazel@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 20:20:38 by azazel            #+#    #+#             */
-/*   Updated: 2026/01/03 11:30:28 by azazel           ###   ########lyon.fr   */
+/*   Updated: 2026/01/06 10:44:20 by lgoderne         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 static void	free_all(t_stack *stack, int *stack_a, int i)
 {
 	if (i == 1)
-		ft_printf("Error\n");
+		ft_printf("Error\n", 1);
 	if (stack)
 		free(stack);
 	if (stack_a)
@@ -30,15 +30,15 @@ static int	check_is_stack_sorted_stackb_empty(t_stack *stack, int *temp_stack)
 
 	if (stack->len_b > 0)
 	{
-		ft_printf("KO");
-		return (0);
+		ft_printf("KO", 1);
+		return (1);
 	}
 	i = 0;
 	while (i < stack->len_a - 1)
 	{
 		if (stack->stack_a[i] > stack->stack_a[i + 1])
 		{
-			ft_printf("KO");
+			ft_printf("KO", 1);
 			free_all(stack, temp_stack, 0);
 			return (1);
 		}
@@ -58,7 +58,7 @@ static int	get_input(t_stack *stack, int *temp_stack)
 			break ;
 		else if (compare_execute(line, stack) != 0)
 		{
-			ft_printf("Error");
+			ft_printf("Error", 1);
 			free(line);
 			get_next_line(-1);
 			free_all(stack, temp_stack, 0);
@@ -75,7 +75,7 @@ static int	check_argument(int argc, char **argv)
 		return (ERROR);
 	if (is_args_good(argv) == ERROR)
 	{
-		ft_printf("Error");
+		ft_printf("Error", 1);
 		return (ERROR);
 	}
 	return (0);
@@ -100,9 +100,10 @@ int	main(int argc, char **argv)
 	}
 	if (get_input(stack, temp_stack) == ERROR)
 		return (ERROR);
-	if (check_is_stack_sorted_stackb_empty(stack, temp_stack) == 1)
+	if (check_is_stack_sorted_stackb_empty(stack, temp_stack) != 0)
 		return (0);
-	ft_printf("OK");
+	else
+		ft_printf("OK", 1);
 	free_all(stack, temp_stack, 0);
 	return (0);
 }
