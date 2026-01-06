@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 15:35:00 by opernod           #+#    #+#             */
-/*   Updated: 2026/01/06 15:18:15 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/06 16:17:15 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 static int	*init_all(t_stack *stack, char **argv, int argc)
 {
 	int		*stack_a;
-	int		stack_b[10000];
 
 	stack_a = args_to_int(argv, argc);
-	stack->stack_b = stack_b;
 	stack->len_a = get_len_stack(argv, argc);
 	stack->len_b = 0;
 	stack->pa = 0;
@@ -73,6 +71,7 @@ int	main(int argc, char **argv)
 {
 	int		*stack_a;
 	t_stack	*stack;
+	int		stack_b[10000];
 
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
@@ -82,6 +81,7 @@ int	main(int argc, char **argv)
 	}
 	stack_a = init_all(stack, argv, argc);
 	stack->stack_a = stack_a;
+	stack->stack_b = stack_b;
 	if (!stack->stack_a || only_one(stack) != 0 || mode(argv, stack) == 1)
 	{
 		free_all(stack, stack_a, 1);

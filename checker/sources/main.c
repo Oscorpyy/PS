@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 20:20:38 by lgoderne          #+#    #+#             */
-/*   Updated: 2026/01/06 15:03:43 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/06 16:15:44 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ int	main(int argc, char **argv)
 {
 	int		*temp_stack;
 	t_stack	*stack;
+	int		stack_b[1000];
 
 	if (check_argument(argc, argv) == ERROR)
 		return (ERROR);
@@ -92,6 +93,7 @@ int	main(int argc, char **argv)
 	if (!stack)
 		return (ERROR);
 	temp_stack = init_all(stack, argv, argc);
+	stack->stack_b = stack_b;
 	stack->stack_a = temp_stack;
 	if (!stack->stack_a || only_one(stack) != 0)
 	{

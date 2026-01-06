@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 20:24:26 by lgoderne          #+#    #+#             */
-/*   Updated: 2026/01/06 12:25:10 by lgoderne         ###   ########lyon.fr   */
+/*   Updated: 2026/01/06 16:15:37 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,10 +97,8 @@ int	only_one(t_stack *stack)
 int	*init_all(t_stack *stack, char **argv, int argc)
 {
 	int		*stack_a;
-	int		stack_b[1000];
 
 	stack_a = args_to_int(argv, argc);
-	stack->stack_b = stack_b;
 	stack->len_a = get_len_stack(argv, argc);
 	stack->len_b = 0;
 	stack->pa = 0;
