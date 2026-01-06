@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 15:35:00 by opernod           #+#    #+#             */
-/*   Updated: 2026/01/06 16:17:15 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/06 16:35:41 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static int	only_one(t_stack *stack)
 static void	free_all(t_stack *stack, int *stack_a, int i)
 {
 	if (i == 1)
-		ft_printf("Error\n", 1);
+		ft_printf("Error\n", 2);
 	if (stack)
 		free(stack);
 	if (stack_a)
@@ -76,7 +76,7 @@ int	main(int argc, char **argv)
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
 	{
-		ft_printf("Error\n", 1);
+		ft_printf("Error\n", 2);
 		return (0);
 	}
 	stack_a = init_all(stack, argv, argc);

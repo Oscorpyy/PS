@@ -21,7 +21,7 @@ A benchmark mode is also provided.
 
 A bonus checker program can validate whether a sequence of operations actually sorts the stack.
 
-Instructions
+## Instructions
 
 **make**
 **make bonus**
@@ -161,7 +161,7 @@ For highly disordered data, Quick Sort provides the best performance thanks to i
 
 **Lgoderne** — Meduim and Complex algorthim + checker 
 
-#### Resources
+### Resources
 
 - Sorting algorithms: https://en.wikipedia.org/wiki/Sorting_algorithm
 - Time complexity: https://en.wikipedia.org/wiki/Time_complexity
