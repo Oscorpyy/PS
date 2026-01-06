@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   args_to_int.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 12:01:28 by opernod           #+#    #+#             */
-/*   Updated: 2025/12/18 17:44:47 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/06 10:17:33 by lgoderne         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
