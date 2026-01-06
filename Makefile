@@ -6,7 +6,7 @@
 #    By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/17 15:35:41 by opernod           #+#    #+#              #
-#    Updated: 2026/01/05 17:57:34 by opernod          ###   ########lyon.fr    #
+#    Updated: 2026/01/06 12:10:28 by opernod          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,13 +24,11 @@ PRINTF		= $(PRINTF_DIR)/libftprintf.a
 SRC_DIR		= sources
 OP_DIR		= operations
 
-# Operations files located in sources/operations
 OP_FILES	= pa.c pb.c \
 			  ra.c rb.c rr.c \
 			  rra.c rrb.c rrr.c \
 			  sa.c sb.c ss.c
 
-# Main source files located in sources/
 SRC_FILES	= adaptive.c \
 			  args_to_int.c \
 			  bucket_sort.c \

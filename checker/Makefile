@@ -6,7 +6,7 @@
 #    By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/23 01:26:23 by azazel            #+#    #+#              #
-#    Updated: 2026/01/05 12:23:23 by opernod          ###   ########lyon.fr    #
+#    Updated: 2026/01/06 12:10:42 by opernod          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ PRINTF_DIR	= ../printf
 PRINTF		= $(PRINTF_DIR)/libftprintf.a
 
 SRC_DIR		= sources
-OP_DIR		= ../sources/operations
+OP_DIR		= operations
 
 OP_FILES	= pa.c pb.c \
 			  ra.c rb.c rr.c \
@@ -39,7 +39,7 @@ SRC_FILES	= main.c \
 			  compare_execute.c
 			  
 SRCS		= $(addprefix $(SRC_DIR)/, $(SRC_FILES)) \
-			  $(addprefix $(OP_DIR)/, $(OP_FILES))
+			  $(addprefix $(SRC_DIR)/$(OP_DIR)/, $(OP_FILES))
 
 OBJS		= $(SRCS:.c=.o)
 
