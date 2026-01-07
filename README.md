@@ -1,4 +1,4 @@
-_This project has been created as part of the 42 curriculum by opernod and lgoderne_
+_This project has been created as part of the 42 curriculum by opernod, lgoderne_
 
 # Push_swap
 ## Description
@@ -76,6 +76,9 @@ This algorithm repeatedly searches for the smallest element in the unsorted part
 For each element, the algorithm scans the rest of the array to find the minimum value.
 This results in two nested loops, leading to O(n²) time complexity, regardless of the initial order of the data.
 
+#### Why we choose it
+We choose it because of it's simplicity to implement and to undestand
+
 ### Medium Algorithm — O(n√n)
 
 #### Chosen method:
@@ -92,6 +95,9 @@ Since there are √n buckets, the total sorting cost is O(n√n).
 
 Thus, the overall complexity is O(n√n).
 
+#### Why we choose it
+The first we try to implement and to undestand, because of the performance we have with it and we understand it pretty well
+
 ### Complex Algorithm — O(n log n)
 
 #### Chosen method:
@@ -101,6 +107,9 @@ This algorithm selects a pivot element, partitions the array into two sub-arrays
 #### Complexity justification:
 On average, Quick Sort divides the array into two balanced sub-arrays.
 Each partitioning step takes O(n) time, and the depth of recursion is O(log n), leading to an average time complexity of O(n log n).
+
+#### Why we choose it
+it has been choose, because in the first place we try with radix sort, but in search for better performance we go with quick sort
 
 ### Adaptive Algorithm
 
