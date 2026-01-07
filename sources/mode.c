@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 18:49:29 by opernod           #+#    #+#             */
-/*   Updated: 2026/01/06 17:20:01 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/07 14:40:33 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ int	mode(char	**str, t_stack *stack)
 		i++;
 	if (ft_strcmp(str[i], "") == 0 || !str[i])
 		adaptive_algo(stack);
-	else if (ft_strcmp(str[i], "--simple") == 0)
+	else if (ft_strcmp(str[i], "--simple") == 0 && !str[i + 1])
 		selection_sort(stack);
-	else if (ft_strcmp(str[i], "--medium") == 0)
+	else if (ft_strcmp(str[i], "--medium") == 0 && !str[i + 1])
 		bucket_sort_simple(stack);
-	else if (ft_strcmp(str[i], "--complex") == 0)
+	else if (ft_strcmp(str[i], "--complex") == 0 && !str[i + 1])
 		quick_sort(stack);
-	else if (ft_strcmp(str[i], "--adaptive") == 0)
+	else if (ft_strcmp(str[i], "--adaptive") == 0 && !str[i + 1])
 		adaptive_algo(stack);
 	else if (ft_strcmp(str[i], "--bench") == 0)
 		res = for_bench(stack, str[i + 1]);
