@@ -6,7 +6,7 @@
 /*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 16:27:04 by lgoderne          #+#    #+#             */
-/*   Updated: 2026/01/06 11:25:29 by lgoderne         ###   ########lyon.fr   */
+/*   Updated: 2026/01/07 10:43:54 by lgoderne         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	get_max_pos(t_stack *stack, int to_find)
 			return (i);
 		i++;
 	}
-	return (-1);
+	return (stack->len_a / 2);
 }
 
 static void	loop_stack_a(t_stack *stack, int range)
@@ -81,7 +81,6 @@ void	loop_stack_b(t_stack *stack)
 
 void	bucket_sort_simple(t_stack *stack)
 {
-	int	i;
 	int	range;
 	int	*tmp_tab;
 
@@ -91,8 +90,5 @@ void	bucket_sort_simple(t_stack *stack)
 	range = ft_sqrt(stack->len_a);
 	loop_stack_a(stack, range);
 	loop_stack_b(stack);
-	i = -1;
-	while (++i < stack->len_a)
-		stack->stack_a[i] = tmp_tab[stack->stack_a[i]];
 	free(tmp_tab);
 }
