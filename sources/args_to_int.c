@@ -6,7 +6,7 @@
 /*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 12:01:28 by opernod           #+#    #+#             */
-/*   Updated: 2026/01/06 10:17:33 by lgoderne         ###   ########lyon.fr   */
+/*   Updated: 2026/01/09 15:07:50 by lgoderne         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,21 +52,21 @@ int	*args_to_int(char **str, int strlen)
 	long	nb;
 	int		error;
 
-	i = 1;
+	i = 0;
 	error = 0;
-	nbs = malloc((strlen - 1) * sizeof(int));
+	nbs = malloc((strlen) * sizeof(int));
 	if (!nbs)
 		return (NULL);
 	while (i < strlen && str[i][1] != '-')
 	{
 		error = only_num(str[i]);
 		nb = ft_atol(str[i]);
-		if (nb > 2147483647 || nb < -2147483648 || error == -1)
+		if (nb > INT_MAX || nb < INT_MIN || error == -1)
 		{
 			free(nbs);
 			return (NULL);
 		}
-		nbs[i - 1] = (int)nb;
+		nbs[i] = (int)nb;
 		i++;
 	}
 	return (nbs);

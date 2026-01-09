@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 15:35:00 by opernod           #+#    #+#             */
-/*   Updated: 2026/01/06 16:35:41 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/09 14:46:42 by lgoderne         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int	main(int argc, char **argv)
 	int		*stack_a;
 	t_stack	*stack;
 	int		stack_b[10000];
+	char	**seperate_argv;
 
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
@@ -79,7 +80,8 @@ int	main(int argc, char **argv)
 		ft_printf("Error\n", 2);
 		return (0);
 	}
-	stack_a = init_all(stack, argv, argc);
+	seperate_argv = new_argv(argv, argc);
+	stack_a = init_all(stack, seperate_argv, argc);
 	stack->stack_a = stack_a;
 	stack->stack_b = stack_b;
 	if (!stack->stack_a || only_one(stack) != 0 || mode(argv, stack) == 1)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 10:46:37 by lgoderne          #+#    #+#             */
-/*   Updated: 2026/01/05 14:38:33 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/09 14:45:11 by lgoderne         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
+# include <limits.h>
 
 typedef struct s_stack
 {
@@ -65,6 +66,7 @@ void	reverse_rotate_b(t_stack *stack);
 void	reverse_rotate_r(t_stack *stack);
 void	bucket_sort_simple(t_stack *stack);
 char	*adaptive_algo(t_stack *stack);
+char	**new_argv(char **argv, int argc);
 float	disorder(t_stack *stack);
 
 #endif

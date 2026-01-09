@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+         #
+#    By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/17 15:35:41 by opernod           #+#    #+#              #
-#    Updated: 2026/01/07 14:11:32 by opernod          ###   ########lyon.fr    #
+#    Updated: 2026/01/08 17:37:25 by lgoderne         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= push_swap
 
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -I includes -I libft -I printf/includes
+CFLAGS		= -Wall -Wextra -Werror -fsanitize=address -g -I includes -I libft -I printf/includes
 
 LIBFT_DIR	= libft
 LIBFT		= $(LIBFT_DIR)/libft.a
@@ -47,7 +47,8 @@ SRC_FILES	= adaptive.c \
 			  quick_sort_a.c \
 			  quick_sort_b.c \
 			  quick_sort_utils.c \
-			  selection_sort.c
+			  selection_sort.c \
+			  new_argv.c
 
 SRCS		= $(addprefix $(SRC_DIR)/, $(SRC_FILES)) \
 			  $(addprefix $(SRC_DIR)/$(OP_DIR)/, $(OP_FILES))
