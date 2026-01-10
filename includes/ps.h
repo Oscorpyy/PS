@@ -65,6 +65,7 @@ void	reverse_rotate_b(t_stack *stack);
 void	reverse_rotate_r(t_stack *stack);
 void	bucket_sort_simple(t_stack *stack);
 char	*adaptive_algo(t_stack *stack);
+char	**new_argv(char **argv, int *argc);
 float	disorder(t_stack *stack);
 
 #endif

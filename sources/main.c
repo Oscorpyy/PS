@@ -67,11 +67,25 @@ static void	free_all(t_stack *stack, int *stack_a, int i)
 	return ;
 }
 
+static void	free_argv(char **new_argv, int argc)
+{
+	int	i;
+
+	i = 0;
+	while (i < argc)
+	{
+		free(new_argv[i]);
+		i++;
+	}
+	free(new_argv);
+}
+
 int	main(int argc, char **argv)
 {
 	int		*stack_a;
 	t_stack	*stack;
 	int		stack_b[10000];
+	char	**final_argv;
 
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
@@ -79,13 +93,18 @@ int	main(int argc, char **argv)
 		ft_printf("Error\n", 2);
 		return (0);
 	}
-	stack_a = init_all(stack, argv, argc);
+	final_argv = new_argv(argv, &argc);
+	if (!final_argv)
+		return (0);
+	stack_a = init_all(stack, final_argv, argc);
 	stack->stack_a = stack_a;
 	stack->stack_b = stack_b;
 	if (!stack->stack_a || only_one(stack) != 0 || mode(argv, stack) == 1)
 	{
+		free_argv(final_argv, argc);
 		free_all(stack, stack_a, 1);
 		return (0);
 	}
+	free_argv(final_argv, argc);
 	free_all(stack, stack_a, 0);
 }

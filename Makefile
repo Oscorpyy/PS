@@ -43,6 +43,7 @@ SRC_FILES	= adaptive.c \
 			  index.c \
 			  main.c \
 			  mode.c \
+			  new_argv.c \
 			  quick_sort.c \
 			  quick_sort_a.c \
 			  quick_sort_b.c \
