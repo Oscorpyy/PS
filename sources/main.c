@@ -67,17 +67,10 @@ static void	free_all(t_stack *stack, int *stack_a, int i)
 	return ;
 }
 
-static void	free_argv(char **new_argv, int argc)
+static int	free_stack_early(t_stack *stack)
 {
-	int	i;
-
-	i = 0;
-	while (i < argc)
-	{
-		free(new_argv[i]);
-		i++;
-	}
-	free(new_argv);
+	free(stack);
+	return (0);
 }
 
 int	main(int argc, char **argv)
@@ -95,7 +88,7 @@ int	main(int argc, char **argv)
 	}
 	final_argv = new_argv(argv, &argc);
 	if (!final_argv)
-		return (0);
+		return (free_stack_early(stack));
 	stack_a = init_all(stack, final_argv, argc);
 	stack->stack_a = stack_a;
 	stack->stack_b = stack_b;

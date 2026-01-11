@@ -90,7 +90,10 @@ char	**new_argv(char **argv, int *argc)
 	{
 		to_write = sub_part_creation(argv[i], to_write, final_argv);
 		if (to_write == -1)
+		{
+			free_argv(final_argv, to_write);
 			return (NULL);
+		}
 		i++;
 	}
 	final_argv[to_write] = NULL;

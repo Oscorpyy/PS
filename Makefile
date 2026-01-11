@@ -48,7 +48,8 @@ SRC_FILES	= adaptive.c \
 			  quick_sort_a.c \
 			  quick_sort_b.c \
 			  quick_sort_utils.c \
-			  selection_sort.c
+			  selection_sort.c \
+			  free_argv.c
 
 SRCS		= $(addprefix $(SRC_DIR)/, $(SRC_FILES)) \
 			  $(addprefix $(SRC_DIR)/$(OP_DIR)/, $(OP_FILES))
