@@ -38,7 +38,7 @@ SRC_FILES	= main.c \
 			  ft_strcmp.c \
 			  compare_execute.c \
 			  new_argv.c \
-			  free_argv.c
+			  free_everything.c
 			  
 SRCS		= $(addprefix $(SRC_DIR)/, $(SRC_FILES)) \
 			  $(addprefix $(SRC_DIR)/$(OP_DIR)/, $(OP_FILES))

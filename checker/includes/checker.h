@@ -24,5 +24,6 @@ int		only_num(char *str);
 int		compare_execute(char *line, t_stack *stack);
 char	**new_argv(char **argv, int *argc);
 void	free_argv(char **new_argv, int argc);
+void	free_all(t_stack *stack, int *stack_a, int i);
 
 #endif

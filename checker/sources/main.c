@@ -13,17 +13,6 @@
 #include "../includes/checker.h"
 #include "../includes/get_next_line.h"
 
-static void	free_all(t_stack *stack, int *stack_a, int i)
-{
-	if (i == 1)
-		ft_printf("Error\n", 2);
-	if (stack)
-		free(stack);
-	if (stack_a)
-		free(stack_a);
-	return ;
-}
-
 static int	check_is_stack_sorted_stackb_empty(t_stack *stack, int *temp_stack)
 {
 	int	i;
@@ -81,6 +70,31 @@ static int	check_argument(int argc, char **argv)
 	return (0);
 }
 
+static int	input_and_check(t_stack *stack, char **argv, int argc, int *stack_i)
+{
+	if (!stack->stack_a || only_one(stack) != 0)
+	{
+		free_argv(argv, argc);
+		free_all(stack, stack_i, 1);
+		return (ERROR);
+	}
+	if (get_input(stack, stack_i) == ERROR)
+	{
+		free_argv(argv, argc);
+		free_all(stack, stack_i, 1);
+		return (ERROR);
+	}
+	if (check_is_stack_sorted_stackb_empty(stack, stack_i) != 0)
+	{
+		free_argv(argv, argc);
+		free_all(stack, stack_i, 1);
+		return (ERROR);
+	}
+	else
+		ft_printf("OK\n", 1);
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	int		*temp_stack;
@@ -90,10 +104,10 @@ int	main(int argc, char **argv)
 
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
-	return (ERROR);
+		return (ERROR);
 	final_argv = new_argv(argv, &argc);
 	if (!final_argv)
-	return (0);
+		return (0);
 	if (check_argument(argc, final_argv) == ERROR)
 	{
 		free(stack);
@@ -103,18 +117,8 @@ int	main(int argc, char **argv)
 	temp_stack = init_all(stack, final_argv, argc);
 	stack->stack_b = stack_b;
 	stack->stack_a = temp_stack;
-	if (!stack->stack_a || only_one(stack) != 0)
-	{
-		free_argv(final_argv, argc);
-		free_all(stack, temp_stack, 1);
+	if (input_and_check(stack, final_argv, argc, temp_stack) != 0)
 		return (ERROR);
-	}
-	if (get_input(stack, temp_stack) == ERROR)
-		return (ERROR);
-	if (check_is_stack_sorted_stackb_empty(stack, temp_stack) != 0)
-		return (0);
-	else
-		ft_printf("OK\n", 1);
 	free_argv(final_argv, argc);
 	free_all(stack, temp_stack, 0);
 	return (0);
