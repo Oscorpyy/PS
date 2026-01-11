@@ -15,12 +15,14 @@
 # define ERROR -1
 # include "../../includes/ps.h"
 
-int	is_args_good(char	**argv);
-int	*init_all(t_stack *stack, char **argv, int argc);
-int	get_len_stack(char	**str, int len_str);
-int	*args_to_int(char **str, int strlen);
-int	only_one(t_stack *stack);
-int	only_num(char *str);
-int	compare_execute(char *line, t_stack *stack);
+int		is_args_good(char	**argv);
+int		*init_all(t_stack *stack, char **argv, int argc);
+int		get_len_stack(char	**str, int len_str);
+int		*args_to_int(char **str, int strlen);
+int		only_one(t_stack *stack);
+int		only_num(char *str);
+int		compare_execute(char *line, t_stack *stack);
+char	**new_argv(char **argv, int *argc);
+void	free_argv(char **new_argv, int argc);
 
 #endif

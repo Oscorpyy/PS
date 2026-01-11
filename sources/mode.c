@@ -27,7 +27,7 @@ int	mode(char	**str, t_stack *stack)
 
 	i = 0;
 	res = 0;
-	while ((str[i] && str[i][0] != '-') || (str[i] && str [i][1] != '-'))
+	while ((str[i] && str[i][0] != '-') && (str[i] && str [i][1] != '-'))
 		i++;
 	if (ft_strcmp(str[i], "") == 0 || !str[i])
 		adaptive_algo(stack);

@@ -86,17 +86,26 @@ int	main(int argc, char **argv)
 	int		*temp_stack;
 	t_stack	*stack;
 	int		stack_b[1000];
+	char	**final_argv;
 
-	if (check_argument(argc, argv) == ERROR)
-		return (ERROR);
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
+	return (ERROR);
+	final_argv = new_argv(argv, &argc);
+	if (!final_argv)
+	return (0);
+	if (check_argument(argc, final_argv) == ERROR)
+	{
+		free(stack);
+		free_argv(final_argv, argc);
 		return (ERROR);
-	temp_stack = init_all(stack, argv, argc);
+	}
+	temp_stack = init_all(stack, final_argv, argc);
 	stack->stack_b = stack_b;
 	stack->stack_a = temp_stack;
 	if (!stack->stack_a || only_one(stack) != 0)
 	{
+		free_argv(final_argv, argc);
 		free_all(stack, temp_stack, 1);
 		return (ERROR);
 	}
@@ -106,6 +115,7 @@ int	main(int argc, char **argv)
 		return (0);
 	else
 		ft_printf("OK\n", 1);
+	free_argv(final_argv, argc);
 	free_all(stack, temp_stack, 0);
 	return (0);
 }

@@ -36,7 +36,9 @@ SRC_FILES	= main.c \
 			  get_next_line.c \
 			  get_next_line_utils.c \
 			  ft_strcmp.c \
-			  compare_execute.c
+			  compare_execute.c \
+			  new_argv.c \
+			  free_argv.c
 			  
 SRCS		= $(addprefix $(SRC_DIR)/, $(SRC_FILES)) \
 			  $(addprefix $(SRC_DIR)/$(OP_DIR)/, $(OP_FILES))

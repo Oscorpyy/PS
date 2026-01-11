@@ -1,5 +1,5 @@
 
-#include "../includes/ps.h"
+#include "../../includes/ps.h"
 
 void	free_argv(char **new_argv, int argc)
 {
