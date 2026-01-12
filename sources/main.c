@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 15:35:00 by opernod           #+#    #+#             */
-/*   Updated: 2026/01/06 16:35:41 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/12 12:18:57 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	main(int argc, char **argv)
 {
 	int		*stack_a;
 	t_stack	*stack;
-	int		stack_b[10000];
+	int		stack_b[100000];
 	char	**final_argv;
 
 	stack = malloc(sizeof(t_stack));

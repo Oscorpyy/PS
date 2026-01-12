@@ -6,7 +6,7 @@
 #    By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/17 15:35:41 by opernod           #+#    #+#              #
-#    Updated: 2026/01/07 14:11:32 by opernod          ###   ########lyon.fr    #
+#    Updated: 2026/01/12 11:26:47 by opernod          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,13 +17,10 @@ CFLAGS		= -Wall -Wextra -Werror -I includes -I libft -I printf/includes
 
 LIBFT_DIR	= libft
 LIBFT		= $(LIBFT_DIR)/libft.a
-LIBFT_SRCS	= $(wildcard $(LIBFT_DIR)/*.c)
-LIBFT_OBJS	= $(LIBFT_SRCS:.c=.o)
 
 PRINTF_DIR	= printf
 PRINTF		= $(PRINTF_DIR)/libftprintf.a
-PRINTF_SRCS	= $(wildcard $(PRINTF_DIR)/sources/*.c)
-PRINTF_OBJS	= $(PRINTF_SRCS:.c=.o)
+
 
 SRC_DIR		= sources
 OP_DIR		= operations
@@ -59,16 +56,16 @@ OBJS		= $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT) $(PRINTF)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $(NAME) -g
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $(NAME)
 
 $(LIBFT): $(LIBFT_OBJS)
-	ar rcs $(LIBFT) $(LIBFT_OBJS)
+	$(MAKE) -C $(LIBFT_DIR)
 
 $(PRINTF): $(PRINTF_OBJS)
-	ar rcs $(PRINTF) $(PRINTF_OBJS)
+	$(MAKE) -C $(PRINTF_DIR)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@ -g
+	$(CC) $(CFLAGS) -c $< -o $@
 
 bonus:
 	$(MAKE) -C $(CHECKER_DIR)
