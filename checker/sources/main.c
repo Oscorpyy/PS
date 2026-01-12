@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 20:20:38 by lgoderne          #+#    #+#             */
-/*   Updated: 2026/01/12 12:16:20 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/12 13:44:08 by lgoderne         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/checker.h"
 #include "../includes/get_next_line.h"
 
-static int	check_is_stack_sorted_stackb_empty(t_stack *stack, int *temp_stack)
+static int	check_is_stack_sorted_stackb_empty(t_stack *stack)
 {
 	int	i;
 
@@ -28,7 +28,6 @@ static int	check_is_stack_sorted_stackb_empty(t_stack *stack, int *temp_stack)
 		if (stack->stack_a[i] > stack->stack_a[i + 1])
 		{
 			ft_printf("KO\n", 1);
-			free_all(stack, temp_stack, 0);
 			return (1);
 		}
 		i++;
@@ -36,7 +35,7 @@ static int	check_is_stack_sorted_stackb_empty(t_stack *stack, int *temp_stack)
 	return (0);
 }
 
-static int	get_input(t_stack *stack, int *temp_stack)
+static int	get_input(t_stack *stack)
 {
 	char	*line;
 
@@ -50,7 +49,6 @@ static int	get_input(t_stack *stack, int *temp_stack)
 			ft_printf("Error\n", 2);
 			free(line);
 			get_next_line(-1);
-			free_all(stack, temp_stack, 0);
 			return (ERROR);
 		}
 		free(line);
@@ -75,19 +73,19 @@ static int	input_and_check(t_stack *stack, char **argv, int argc, int *stack_i)
 	if (!stack->stack_a || only_one(stack) != 0)
 	{
 		free_argv(argv, argc);
-		free_all(stack, stack_i, 1);
+		free_all(stack, stack_i, 0);
 		return (ERROR);
 	}
-	if (get_input(stack, stack_i) == ERROR)
+	if (get_input(stack) == ERROR)
 	{
 		free_argv(argv, argc);
-		free_all(stack, stack_i, 1);
+		free_all(stack, stack_i, 0);
 		return (ERROR);
 	}
-	if (check_is_stack_sorted_stackb_empty(stack, stack_i) != 0)
+	if (check_is_stack_sorted_stackb_empty(stack) != 0)
 	{
 		free_argv(argv, argc);
-		free_all(stack, stack_i, 1);
+		free_all(stack, stack_i, 0);
 		return (ERROR);
 	}
 	else
