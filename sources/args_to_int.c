@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   args_to_int.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 12:01:28 by opernod           #+#    #+#             */
-/*   Updated: 2026/01/06 10:17:33 by lgoderne         ###   ########lyon.fr   */
+/*   Updated: 2026/01/12 13:28:46 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	get_len_stack(char	**str, int len_str)
 
 	i = 1;
 	total = 0;
-	while (i < len_str && only_num(str[i]) == 0)
+	while (str[i] && i < len_str && only_num(str[i]) == 0)
 	{
 		i++;
 		total++;
@@ -57,7 +57,7 @@ int	*args_to_int(char **str, int strlen)
 	nbs = malloc((strlen - 1) * sizeof(int));
 	if (!nbs)
 		return (NULL);
-	while (i < strlen && str[i][1] != '-')
+	while (str[i] && i < strlen && str[i][1] != '-')
 	{
 		error = only_num(str[i]);
 		nb = ft_atol(str[i]);
