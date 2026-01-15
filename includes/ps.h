@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 10:46:37 by lgoderne          #+#    #+#             */
-/*   Updated: 2026/01/05 14:38:33 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/15 18:28:59 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	bucket_sort_simple(t_stack *stack);
 void	free_argv(char **new_argv, int argc);
 char	*adaptive_algo(t_stack *stack);
 char	**new_argv(char **argv, int *argc);
+char	*strjoin_all(int size, char **strs, char *sep);
 float	disorder(t_stack *stack);
 
 #endif

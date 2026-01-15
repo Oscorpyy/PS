@@ -6,11 +6,12 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 11:58:08 by opernod           #+#    #+#             */
-/*   Updated: 2026/01/05 14:56:12 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/15 18:35:21 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include "../../libft/libft.h"
 
 void	printp(int fd, void *point, t_count *count)
 {
@@ -21,19 +22,6 @@ void	printp(int fd, void *point, t_count *count)
 		ft_putstr(fd, "0x", count);
 		ft_putnbr_base(fd, (size_t)point, HEX, count);
 	}
-}
-
-size_t	ft_strlen(const char *str)
-{
-	int	total;
-
-	total = 0;
-	while (*str != '\0')
-	{
-		str++;
-		total++;
-	}
-	return (total);
 }
 
 void	ft_percent(int fd, char c, va_list args, t_count *count)

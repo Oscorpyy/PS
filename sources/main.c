@@ -6,11 +6,12 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 15:35:00 by opernod           #+#    #+#             */
-/*   Updated: 2026/01/15 18:00:13 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/15 18:36:12 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
+#include "../../libft/libft.h"
 
 static void	init_all(t_stack *stack, char **argv, int argc)
 {
@@ -68,8 +69,10 @@ int	main(int argc, char **argv)
 {
 	t_stack	stack;
 	char	**final_argv;
+	char	*joined;
 
-	final_argv = new_argv(argv, &argc);
+	joined = strjoin_all(argc, argv, " ");
+	final_argv = ft_split(joined, ' ');
 	if (!final_argv)
 		return (1);
 	init_all(&stack, final_argv, argc);
@@ -81,5 +84,6 @@ int	main(int argc, char **argv)
 	}
 	free_argv(final_argv, argc);
 	free_all(stack.stack_a, stack.stack_b, 0);
+	free(joined);
 	return (0);
 }

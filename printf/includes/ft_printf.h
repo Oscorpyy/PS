@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 11:59:45 by opernod           #+#    #+#             */
-/*   Updated: 2026/01/05 14:55:51 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/15 18:33:29 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,5 @@ void	ft_putstr(int fd, char *s, t_count *count);
 void	ft_putnbr(int fd, long long num, t_count *count);
 void	ft_putnbr_base(int fd, size_t n, char	*base, t_count *count);
 void	ft_putfloat(int fd, float num, t_count *count);
-size_t	ft_strlen(const char *str);
 
 #endif

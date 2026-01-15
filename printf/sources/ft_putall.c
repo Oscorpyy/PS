@@ -6,11 +6,12 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 15:54:10 by opernod           #+#    #+#             */
-/*   Updated: 2026/01/05 15:24:59 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/15 18:35:07 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include "../../libft/libft.h"
 
 void	ft_putchar(int fd, char c, t_count *count)
 {
