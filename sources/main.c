@@ -6,18 +6,17 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 15:35:00 by opernod           #+#    #+#             */
-/*   Updated: 2026/01/12 15:35:39 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/15 18:00:13 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
 
-static int	*init_all(t_stack *stack, char **argv, int argc)
+static void	init_all(t_stack *stack, char **argv, int argc)
 {
-	int		*stack_a;
-
-	stack_a = args_to_int(argv, argc);
+	stack->stack_a = args_to_int(argv, argc);
 	stack->len_a = get_len_stack(argv, argc);
+	stack->stack_b = malloc(stack->len_a * sizeof(int));
 	stack->len_b = 0;
 	stack->pa = 0;
 	stack->pb = 0;
@@ -31,7 +30,6 @@ static int	*init_all(t_stack *stack, char **argv, int argc)
 	stack->sb = 0;
 	stack->ss = 0;
 	stack->total = 0;
-	return (stack_a);
 }
 
 static int	only_one(t_stack *stack)
@@ -56,48 +54,32 @@ static int	only_one(t_stack *stack)
 	return (error);
 }
 
-static void	free_all(t_stack *stack, int *stack_a, int i)
+static void	free_all(int *stack_a, int *stack_b, int i)
 {
 	if (i == 1)
 		ft_printf("Error\n", 2);
-	if (stack)
-		free(stack);
 	if (stack_a)
 		free(stack_a);
-	return ;
-}
-
-static int	free_stack_early(t_stack *stack)
-{
-	free(stack);
-	return (0);
+	if (stack_b)
+		free(stack_b);
 }
 
 int	main(int argc, char **argv)
 {
-	int		*stack_a;
-	t_stack	*stack;
-	int		stack_b[100000];
+	t_stack	stack;
 	char	**final_argv;
 
-	stack = malloc(sizeof(t_stack));
-	if (!stack)
-	{
-		ft_printf("Error\n", 2);
-		return (0);
-	}
 	final_argv = new_argv(argv, &argc);
 	if (!final_argv)
-		return (free_stack_early(stack));
-	stack_a = init_all(stack, final_argv, argc);
-	stack->stack_a = stack_a;
-	stack->stack_b = stack_b;
-	if (!stack->stack_a || only_one(stack) != 0 || mode(argv, stack) == 1)
+		return (1);
+	init_all(&stack, final_argv, argc);
+	if (!stack.stack_a || only_one(&stack) != 0 || mode(argv, &stack) == 1)
 	{
 		free_argv(final_argv, argc);
-		free_all(stack, stack_a, 1);
+		free_all(stack.stack_a, stack.stack_b, 1);
 		return (0);
 	}
 	free_argv(final_argv, argc);
-	free_all(stack, stack_a, 0);
+	free_all(stack.stack_a, stack.stack_b, 0);
+	return (0);
 }

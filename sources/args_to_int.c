@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 12:01:28 by opernod           #+#    #+#             */
-/*   Updated: 2026/01/12 13:28:46 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/15 17:25:58 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	get_len_stack(char	**str, int len_str)
 	return (total);
 }
 
-int	*args_to_int(char **str, int strlen)
+int	*args_to_int(char **str, int len)
 {
 	int		i;
 	int		*nbs;
@@ -54,10 +54,10 @@ int	*args_to_int(char **str, int strlen)
 
 	i = 1;
 	error = 0;
-	nbs = malloc((strlen - 1) * sizeof(int));
+	nbs = malloc((len - 1) * sizeof(int));
 	if (!nbs)
 		return (NULL);
-	while (str[i] && i < strlen && str[i][1] != '-')
+	while (str[i] && i < len && (str[i][0] != '-' || str[i][1] != '-'))
 	{
 		error = only_num(str[i]);
 		nb = ft_atol(str[i]);

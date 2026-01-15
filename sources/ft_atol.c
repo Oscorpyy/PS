@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 10:44:45 by lgoderne          #+#    #+#             */
-/*   Updated: 2025/12/18 16:58:01 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/15 17:27:57 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	ft_isspace(int c)
 
 static int	ft_isdigit(int character)
 {
-	if ((character >= 48 && character <= 57))
+	if ((character >= '0' && character <= '9'))
 		return (1);
 	else
 		return (0);

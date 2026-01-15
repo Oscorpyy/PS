@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   new_argv.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 16:56:01 by lgoderne          #+#    #+#             */
-/*   Updated: 2026/01/09 17:07:47 by lgoderne         ###   ########lyon.fr   */
+/*   Updated: 2026/01/15 17:32:43 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@
 static int	total_subpart(char	**argv, int argc)
 {
 	int	i;
-	int	y;
+	int	j;
 	int	count;
 
 	count = 0;
 	i = 0;
 	while (i < argc)
 	{
-		y = 0;
-		while (argv[i][y])
+		j = 0;
+		while (argv[i][j])
 		{
-			if (argv[i][y] == ' ')
+			if (argv[i][j] == ' ')
 				count++;
-			y++;
+			j++;
 		}
 		count++;
 		i++;
@@ -53,22 +53,22 @@ static int	len_sub_part(char *sub_argv, int index)
 
 static int	sub_part_creation(char *argv, int to_write, char **final_argv)
 {
-	int	y;
-	int	k;
+	int	i;
+	int	j;
 
-	y = 0;
-	while (argv[y])
+	i = 0;
+	while (argv[i])
 	{
-		final_argv[to_write] = malloc(sizeof(char) * len_sub_part(argv, y));
+		final_argv[to_write] = malloc(sizeof(char) * len_sub_part(argv, i));
 		if (!final_argv[to_write])
 			return (-1);
-		k = 0;
-		while (argv[y] && argv[y] != ' ')
-			final_argv[to_write][k++] = argv[y++];
-		final_argv[to_write][k] = '\0';
+		j = 0;
+		while (argv[i] && argv[i] != ' ')
+			final_argv[to_write][j++] = argv[i++];
+		final_argv[to_write][j] = '\0';
 		to_write++;
-		if (argv[y] == ' ')
-			y++;
+		if (argv[i] == ' ')
+			i++;
 	}
 	return (to_write);
 }

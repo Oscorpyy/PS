@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 20:20:38 by lgoderne          #+#    #+#             */
-/*   Updated: 2026/01/12 13:44:08 by lgoderne         ###   ########lyon.fr   */
+/*   Updated: 2026/01/15 17:48:14 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,13 +110,13 @@ int	main(int argc, char **argv)
 	{
 		free(stack);
 		free_argv(final_argv, argc);
-		return (ERROR);
+		return (1);
 	}
 	temp_stack = init_all(stack, final_argv, argc);
 	stack->stack_b = stack_b;
 	stack->stack_a = temp_stack;
 	if (input_and_check(stack, final_argv, argc, temp_stack) != 0)
-		return (ERROR);
+		return (1);
 	free_argv(final_argv, argc);
 	free_all(stack, temp_stack, 0);
 	return (0);
