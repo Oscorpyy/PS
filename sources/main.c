@@ -65,24 +65,38 @@ static void	free_all(int *stack_a, int *stack_b, int i)
 		free(stack_b);
 }
 
+static int argc_updated(char **new_argv)
+{
+	int	i;
+
+	i = 0;
+	while (new_argv[i])
+		i++;
+	return (i);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	stack;
 	char	**final_argv;
 	char	*joined;
+	int		new_argc;
 
 	joined = strjoin_all(argc, argv, " ");
+	// for (int i = 0; joined[i]; i++)
+	// ft_printf("joined[%i] %s", 1, 0, joined[0]);
 	final_argv = ft_split(joined, ' ');
 	if (!final_argv)
 		return (1);
-	init_all(&stack, final_argv, argc);
+	new_argc = argc_updated(final_argv);
+	init_all(&stack, final_argv, new_argc);
 	if (!stack.stack_a || only_one(&stack) != 0 || mode(argv, &stack) == 1)
 	{
-		free_argv(final_argv, argc);
+		free_argv(final_argv, new_argc);
 		free_all(stack.stack_a, stack.stack_b, 1);
 		return (0);
 	}
-	free_argv(final_argv, argc);
+	free_argv(final_argv, new_argc);
 	free_all(stack.stack_a, stack.stack_b, 0);
 	free(joined);
 	return (0);
