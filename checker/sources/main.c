@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 20:20:38 by lgoderne          #+#    #+#             */
-/*   Updated: 2026/01/15 17:48:14 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/16 12:07:46 by lgoderne         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/checker.h"
 #include "../includes/get_next_line.h"
+#include "../../libft/libft.h"
 
 static int	check_is_stack_sorted_stackb_empty(t_stack *stack)
 {
@@ -68,24 +69,21 @@ static int	check_argument(int argc, char **argv)
 	return (0);
 }
 
-static int	input_and_check(t_stack *stack, char **argv, int argc, int *stack_i)
+static int	input_and_check(t_stack *stack, char **final_argv, char	*joined)
 {
 	if (!stack->stack_a || only_one(stack) != 0)
 	{
-		free_argv(argv, argc);
-		free_all(stack, stack_i, 0);
+		free_all(stack, 1, final_argv, joined);
 		return (ERROR);
 	}
 	if (get_input(stack) == ERROR)
 	{
-		free_argv(argv, argc);
-		free_all(stack, stack_i, 0);
+		free_all(stack, 1, final_argv, joined);
 		return (ERROR);
 	}
 	if (check_is_stack_sorted_stackb_empty(stack) != 0)
 	{
-		free_argv(argv, argc);
-		free_all(stack, stack_i, 0);
+		free_all(stack, 1, final_argv, joined);
 		return (ERROR);
 	}
 	else
@@ -95,29 +93,28 @@ static int	input_and_check(t_stack *stack, char **argv, int argc, int *stack_i)
 
 int	main(int argc, char **argv)
 {
-	int		*temp_stack;
-	t_stack	*stack;
-	int		stack_b[100000];
+	t_stack	stack;
 	char	**final_argv;
+	char	*joined;
 
-	stack = malloc(sizeof(t_stack));
-	if (!stack)
-		return (ERROR);
-	final_argv = new_argv(argv, &argc);
+	joined = strjoin_all(argc, argv, " ");
+	if (!joined)
+		return (1);
+	final_argv = ft_split(joined, ' ');
 	if (!final_argv)
-		return (0);
-	if (check_argument(argc, final_argv) == ERROR)
 	{
-		free(stack);
-		free_argv(final_argv, argc);
+		free_all(&stack, 1, final_argv, joined);
 		return (1);
 	}
-	temp_stack = init_all(stack, final_argv, argc);
-	stack->stack_b = stack_b;
-	stack->stack_a = temp_stack;
-	if (input_and_check(stack, final_argv, argc, temp_stack) != 0)
+	init_all(&stack, final_argv, argc);
+	if (!stack.stack_a || !stack.stack_b
+		|| check_argument(argc, final_argv) == ERROR)
+	{
+		free_all(&stack, 1, final_argv, joined);
 		return (1);
-	free_argv(final_argv, argc);
-	free_all(stack, temp_stack, 0);
+	}
+	if (input_and_check(&stack, final_argv, joined) != 0)
+		return (1);
+	free_all(&stack, 0, final_argv, joined);
 	return (0);
 }

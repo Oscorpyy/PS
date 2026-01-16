@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 20:24:26 by lgoderne          #+#    #+#             */
-/*   Updated: 2026/01/12 13:29:27 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/16 12:03:33 by lgoderne         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/checker.h"
+#include "../../libft/libft.h"
 
 int	only_num(char *str)
 {
@@ -94,12 +95,11 @@ int	only_one(t_stack *stack)
 	return (error);
 }
 
-int	*init_all(t_stack *stack, char **argv, int argc)
+void	init_all(t_stack *stack, char **argv, int argc)
 {
-	int		*stack_a;
-
-	stack_a = args_to_int(argv, argc);
+	stack->stack_a = args_to_int(argv, argc);
 	stack->len_a = get_len_stack(argv, argc);
+	stack->stack_b = ft_calloc(stack->len_a, sizeof(int));
 	stack->len_b = 0;
 	stack->pa = 0;
 	stack->pb = 0;
@@ -113,5 +113,4 @@ int	*init_all(t_stack *stack, char **argv, int argc)
 	stack->sb = 0;
 	stack->ss = 0;
 	stack->total = 0;
-	return (stack_a);
 }

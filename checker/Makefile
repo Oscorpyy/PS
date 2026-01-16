@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+         #
+#    By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/23 01:26:23 by azazel            #+#    #+#              #
-#    Updated: 2026/01/12 14:23:41 by opernod          ###   ########lyon.fr    #
+#    Updated: 2026/01/16 11:34:11 by lgoderne         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,9 +37,10 @@ SRC_FILES	= main.c \
 			  get_next_line_utils.c \
 			  ft_strcmp.c \
 			  compare_execute.c \
-			  new_argv.c \
+			  ft_strjoin_all.c \
+			  argc_update.c \
 			  free_everything.c
-			  
+			
 SRCS		= $(addprefix $(SRC_DIR)/, $(SRC_FILES)) \
 			  $(addprefix $(SRC_DIR)/$(OP_DIR)/, $(OP_FILES))
 
