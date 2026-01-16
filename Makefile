@@ -6,7 +6,7 @@
 #    By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/17 15:35:41 by opernod           #+#    #+#              #
-#    Updated: 2026/01/15 18:29:22 by opernod          ###   ########lyon.fr    #
+#    Updated: 2026/01/16 12:09:40 by opernod          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,19 +35,19 @@ SRC_FILES	= adaptive.c \
 			  args_to_int.c \
 			  bucket_sort.c \
 			  disorder.c \
+			  free_argv.c\
 			  ft_atol.c \
 			  ft_strcmp.c \
+			  ft_strjoin_all.c \
 			  index.c \
 			  main.c \
 			  mode.c \
-			  new_argv.c \
-			  quick_sort.c \
 			  quick_sort_a.c \
 			  quick_sort_b.c \
 			  quick_sort_utils.c \
+			  quick_sort.c \
 			  selection_sort.c \
-			  ft_strjoin_all.c \
-			  free_argv.c
+			  
 
 SRCS		= $(addprefix $(SRC_DIR)/, $(SRC_FILES)) \
 			  $(addprefix $(SRC_DIR)/$(OP_DIR)/, $(OP_FILES))

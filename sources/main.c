@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 15:35:00 by opernod           #+#    #+#             */
-/*   Updated: 2026/01/16 11:08:51 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/16 11:14:46 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	init_all(t_stack *stack, char **argv, int argc)
 {
 	stack->stack_a = args_to_int(argv, argc);
 	stack->len_a = get_len_stack(argv, argc);
-	stack->stack_b = NULL;//ft_calloc(stack->len_a, sizeof(int));
+	stack->stack_b = ft_calloc(stack->len_a, sizeof(int));
 	stack->len_b = 0;
 	stack->pa = 0;
 	stack->pb = 0;
@@ -97,7 +97,8 @@ int	main(int argc, char **argv)
 	}
 	new_argc = argc_updated(final_argv);
 	init_all(&stack, final_argv, new_argc);
-	if (!stack.stack_a || !stack.stack_b || only_one(&stack) != 0 || mode(argv, &stack) == 1)
+	if (!stack.stack_a || !stack.stack_b 
+		|| only_one(&stack) != 0 || mode(argv, &stack) == 1)
 	{
 		free_all(&stack, 1, final_argv, joined);
 		return (1);
