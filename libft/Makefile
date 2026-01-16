@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/11 16:14:19 by lgoderne          #+#    #+#              #
-#    Updated: 2025/11/21 16:07:10 by lgoderne         ###   ########lyon.fr    #
+#    Updated: 2026/01/16 17:29:17 by opernod          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,25 +66,26 @@ BONUS_OBJS = $(BONUS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	@ar -rcs $@ $^
+	@echo "✓ libft created"
 
-$(OBJS): %.o : %.c libft.h Makefile
-	$(CC) $(C_FLAGS) -c $< -o $@
+$(OBJS): %.o : %.c libft.h
+	@$(CC) $(C_FLAGS) -c $< -o $@
 
 bonus: $(BONUS_BUILT)
 
 $(BONUS_BUILT): $(OBJS) $(BONUS_OBJS)
-	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+	@ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 	touch $(BONUS_BUILT)
 
-$(BONUS_OBJS): %.o : %.c libft.h Makefile
-	$(CC) $(C_FLAGS) -c $< -o $@
+$(BONUS_OBJS): %.o : %.c libft.h
+	@$(CC) $(C_FLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+	@rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	rm -f $(NAME) $(BONUS_BUILT)
+	@rm -f $(NAME) $(BONUS_BUILT)
 
 re: fclean all
 

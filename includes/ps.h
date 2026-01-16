@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 10:46:37 by lgoderne          #+#    #+#             */
-/*   Updated: 2026/01/15 18:28:59 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/16 16:59:45 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_stack
 	int	sb;
 	int	ss;
 	int	total;
+	int	print;
 }	t_stack;
 
 int		*indexation(t_stack *stack);

@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 15:35:00 by opernod           #+#    #+#             */
-/*   Updated: 2026/01/16 11:14:46 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/16 16:59:23 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static void	init_all(t_stack *stack, char **argv, int argc)
 	stack->sb = 0;
 	stack->ss = 0;
 	stack->total = 0;
+	stack->print = 1;
 }
 
 static int	only_one(t_stack *stack)
