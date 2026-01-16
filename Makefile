@@ -6,7 +6,7 @@
 #    By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/17 15:35:41 by opernod           #+#    #+#              #
-#    Updated: 2026/01/16 12:09:40 by opernod          ###   ########lyon.fr    #
+#    Updated: 2026/01/16 12:10:05 by opernod          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,7 @@ OBJS		= $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT) $(PRINTF)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $(NAME) -g
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $(NAME)
 
 $(LIBFT): $(LIBFT_OBJS)
 	$(MAKE) -C $(LIBFT_DIR)
@@ -66,7 +66,7 @@ $(PRINTF): $(PRINTF_OBJS)
 	$(MAKE) -C $(PRINTF_DIR)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@ -g
+	$(CC) $(CFLAGS) -c $< -o $@
 
 bonus:
 	$(MAKE) -C $(CHECKER_DIR)
