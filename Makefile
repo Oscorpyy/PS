@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+         #
+#    By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/17 15:35:41 by opernod           #+#    #+#              #
-#    Updated: 2026/01/16 12:10:05 by opernod          ###   ########lyon.fr    #
+#    Updated: 2026/01/16 16:52:36 by lgoderne         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,11 +59,13 @@ all: $(NAME)
 $(NAME): $(OBJS) $(LIBFT) $(PRINTF)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $(NAME)
 
-$(LIBFT): $(LIBFT_OBJS)
-	$(MAKE) -C $(LIBFT_DIR)
+$(LIBFT): FORCE
+	@$(MAKE) -C $(LIBFT_DIR) --no-print-directory
 
-$(PRINTF): $(PRINTF_OBJS)
-	$(MAKE) -C $(PRINTF_DIR)
+$(PRINTF): FORCE
+	@$(MAKE) -C $(PRINTF_DIR) --no-print-directory
+
+FORCE:
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
