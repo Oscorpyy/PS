@@ -6,11 +6,12 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 11:34:24 by crmartin          #+#    #+#             */
-/*   Updated: 2026/01/15 18:30:20 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/16 11:06:07 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
+#include "../../libft/libft.h"
 
 static int	ft_lenstr(char **str, int size, char *sep)
 {
@@ -77,14 +78,14 @@ char	*strjoin_all(int size, char **strs, char *sep)
 	total_size = 0;
 	if (size == 0)
 	{
-		empty = malloc(1);
+		empty = ft_calloc(1, sizeof(char));
 		empty[0] = '\0';
 		return (empty);
 	}
 	if (!sep)
 		sep = sep_null;
 	total_size = ft_lenstr(strs, size, sep);
-	dest = malloc((total_size) * sizeof(char));
+	dest = ft_calloc((total_size), sizeof(char));
 	if (!dest)
 		return (NULL);
 	ft_conc(dest, strs, size, sep);

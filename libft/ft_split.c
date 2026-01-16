@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 14:24:14 by lgoderne          #+#    #+#             */
-/*   Updated: 2025/11/20 12:29:53 by lgoderne         ###   ########lyon.fr   */
+/*   Updated: 2026/01/16 11:08:51 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static char	*create_word(const char *str, int start, int end)
 	int		i;
 
 	i = 0;
-	word = malloc((end - start + 1) * sizeof(char));
+	word = ft_calloc((end - start + 1), sizeof(char));
 	if (!word)
 		return (NULL);
 	while (start < end)

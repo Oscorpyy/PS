@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 15:35:00 by opernod           #+#    #+#             */
-/*   Updated: 2026/01/15 18:36:12 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/16 11:08:51 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	init_all(t_stack *stack, char **argv, int argc)
 {
 	stack->stack_a = args_to_int(argv, argc);
 	stack->len_a = get_len_stack(argv, argc);
-	stack->stack_b = malloc(stack->len_a * sizeof(int));
+	stack->stack_b = NULL;//ft_calloc(stack->len_a, sizeof(int));
 	stack->len_b = 0;
 	stack->pa = 0;
 	stack->pb = 0;
@@ -55,17 +55,7 @@ static int	only_one(t_stack *stack)
 	return (error);
 }
 
-static void	free_all(int *stack_a, int *stack_b, int i)
-{
-	if (i == 1)
-		ft_printf("Error\n", 2);
-	if (stack_a)
-		free(stack_a);
-	if (stack_b)
-		free(stack_b);
-}
-
-static int argc_updated(char **new_argv)
+static int	argc_updated(char **new_argv)
 {
 	int	i;
 
@@ -73,6 +63,20 @@ static int argc_updated(char **new_argv)
 	while (new_argv[i])
 		i++;
 	return (i);
+}
+
+static void	free_all(t_stack *stack, int i, char **final_argv, char	*joined)
+{
+	if (i == 1)
+		ft_printf("Error\n", 2);
+	if (stack->stack_a)
+		free(stack->stack_a);
+	if (stack->stack_b)
+		free(stack->stack_b);
+	if (final_argv)
+		free_argv(final_argv, argc_updated(final_argv));
+	if (joined)
+		free(joined);
 }
 
 int	main(int argc, char **argv)
@@ -83,21 +87,21 @@ int	main(int argc, char **argv)
 	int		new_argc;
 
 	joined = strjoin_all(argc, argv, " ");
-	// for (int i = 0; joined[i]; i++)
-	// ft_printf("joined[%i] %s", 1, 0, joined[0]);
+	if (!joined)
+		return (1);
 	final_argv = ft_split(joined, ' ');
 	if (!final_argv)
+	{
+		free_all(&stack, 1, final_argv, joined);
 		return (1);
+	}
 	new_argc = argc_updated(final_argv);
 	init_all(&stack, final_argv, new_argc);
-	if (!stack.stack_a || only_one(&stack) != 0 || mode(argv, &stack) == 1)
+	if (!stack.stack_a || !stack.stack_b || only_one(&stack) != 0 || mode(argv, &stack) == 1)
 	{
-		free_argv(final_argv, new_argc);
-		free_all(stack.stack_a, stack.stack_b, 1);
-		return (0);
+		free_all(&stack, 1, final_argv, joined);
+		return (1);
 	}
-	free_argv(final_argv, new_argc);
-	free_all(stack.stack_a, stack.stack_b, 0);
-	free(joined);
+	free_all(&stack, 0, final_argv, joined);
 	return (0);
 }
