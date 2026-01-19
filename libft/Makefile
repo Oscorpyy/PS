@@ -6,7 +6,7 @@
 #    By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/11 16:14:19 by lgoderne          #+#    #+#              #
-#    Updated: 2026/01/16 17:29:17 by opernod          ###   ########lyon.fr    #
+#    Updated: 2026/01/19 12:54:49 by opernod          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,7 @@ bonus: $(BONUS_BUILT)
 
 $(BONUS_BUILT): $(OBJS) $(BONUS_OBJS)
 	@ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
-	touch $(BONUS_BUILT)
+	@touch $(BONUS_BUILT)
 
 $(BONUS_OBJS): %.o : %.c libft.h
 	@$(CC) $(C_FLAGS) -c $< -o $@

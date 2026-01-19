@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/17 15:35:41 by opernod           #+#    #+#              #
-#    Updated: 2026/01/19 11:17:00 by lgoderne         ###   ########lyon.fr    #
+#    Updated: 2026/01/19 12:54:22 by opernod          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,16 +81,17 @@ all: $(NAME)
 
 bonus: $(BONUS)
 
-$(NAME): $(PS_OBJS) $(LIBFT) $(PRINTF)
+$(NAME): $(PS_OBJS) $(LIBFT) $(PRINTF) Makefile
 	@$(CC) $(CFLAGS) -I includes -I $(LIBFT_DIR) -I $(PRINTF_DIR)/includes $(PS_OBJS) $(LIBFT) $(PRINTF) -o $(NAME)
 	@echo "✓ push_swap created"
 
-$(BONUS): $(CHECKER_OBJS) $(LIBFT) $(PRINTF)
+$(BONUS): $(CHECKER_OBJS) $(LIBFT) $(PRINTF) Makefiles
 	@$(CC) $(CFLAGS) -I $(CHECKER_DIR)/includes -I $(LIBFT_DIR) -I $(PRINTF_DIR)/includes $(CHECKER_OBJS) $(LIBFT) $(PRINTF) -o $(BONUS)
 	@echo "✓ checker created"
 
 $(LIBFT): FORCE
 	@$(MAKE) -C $(LIBFT_DIR) --no-print-directory
+	@$(MAKE) bonus -C $(LIBFT_DIR) --no-print-directory
 
 $(PRINTF): $(PRINTF_OBJS)
 	@ar -rcs $(PRINTF) $(PRINTF_OBJS)
@@ -100,7 +101,7 @@ $(PRINTF_DIR)/sources/%.o : $(PRINTF_DIR)/sources/%.c $(PRINTF_DIR)/includes/ft_
 	@$(CC) $(PRINTF_FLAGS) $(PRINTF_INCLUDES) -c $< -o $@
 
 %.o: %.c
-	$(CC) $(CFLAGS) -I includes -I $(LIBFT_DIR) -I $(PRINTF_DIR)/includes -c $< -o $@
+	@$(CC) $(CFLAGS) -I includes -I $(LIBFT_DIR) -I $(PRINTF_DIR)/includes -c $< -o $@
 
 clean:
 	@$(RM) $(PS_OBJS) $(CHECKER_OBJS) $(PRINTF_OBJS) $(CHECKER_D) $(PS_D)
