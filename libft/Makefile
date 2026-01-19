@@ -6,7 +6,7 @@
 #    By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/11 16:14:19 by lgoderne          #+#    #+#              #
-#    Updated: 2026/01/19 12:54:49 by opernod          ###   ########lyon.fr    #
+#    Updated: 2026/01/19 12:56:31 by opernod          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,19 +50,6 @@ ft_striteri.c
 
 OBJS = $(SRCS:.c=.o)
 
-BONUS = ft_lstnew_bonus.c\
-ft_lstadd_front_bonus.c\
-ft_lstsize_bonus.c\
-ft_lstlast_bonus.c\
-ft_lstadd_back_bonus.c\
-ft_lstclear_bonus.c\
-ft_lstdelone_bonus.c\
-ft_lstiter_bonus.c\
-ft_lstmap_bonus.c
-
-BONUS_BUILT = .bonus_built
-BONUS_OBJS = $(BONUS:.c=.o)
-
 all: $(NAME)
 
 $(NAME): $(OBJS)
@@ -72,20 +59,11 @@ $(NAME): $(OBJS)
 $(OBJS): %.o : %.c libft.h
 	@$(CC) $(C_FLAGS) -c $< -o $@
 
-bonus: $(BONUS_BUILT)
-
-$(BONUS_BUILT): $(OBJS) $(BONUS_OBJS)
-	@ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
-	@touch $(BONUS_BUILT)
-
-$(BONUS_OBJS): %.o : %.c libft.h
-	@$(CC) $(C_FLAGS) -c $< -o $@
-
 clean:
-	@rm -f $(OBJS) $(BONUS_OBJS)
+	@rm -f $(OBJS)
 
 fclean: clean
-	@rm -f $(NAME) $(BONUS_BUILT)
+	@rm -f $(NAME)
 
 re: fclean all
 

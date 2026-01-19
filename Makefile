@@ -6,7 +6,7 @@
 #    By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/17 15:35:41 by opernod           #+#    #+#              #
-#    Updated: 2026/01/19 12:54:22 by opernod          ###   ########lyon.fr    #
+#    Updated: 2026/01/19 12:57:07 by opernod          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,7 +91,6 @@ $(BONUS): $(CHECKER_OBJS) $(LIBFT) $(PRINTF) Makefiles
 
 $(LIBFT): FORCE
 	@$(MAKE) -C $(LIBFT_DIR) --no-print-directory
-	@$(MAKE) bonus -C $(LIBFT_DIR) --no-print-directory
 
 $(PRINTF): $(PRINTF_OBJS)
 	@ar -rcs $(PRINTF) $(PRINTF_OBJS)
