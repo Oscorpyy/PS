@@ -6,7 +6,7 @@
 #    By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/17 15:35:41 by opernod           #+#    #+#              #
-#    Updated: 2026/01/19 12:57:07 by opernod          ###   ########lyon.fr    #
+#    Updated: 2026/01/19 13:08:25 by opernod          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -100,6 +100,7 @@ $(PRINTF_DIR)/sources/%.o : $(PRINTF_DIR)/sources/%.c $(PRINTF_DIR)/includes/ft_
 	@$(CC) $(PRINTF_FLAGS) $(PRINTF_INCLUDES) -c $< -o $@
 
 %.o: %.c
+	@echo "Compiling $<..."
 	@$(CC) $(CFLAGS) -I includes -I $(LIBFT_DIR) -I $(PRINTF_DIR)/includes -c $< -o $@
 
 clean:
