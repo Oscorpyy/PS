@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+         #
+#    By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/17 15:35:41 by opernod           #+#    #+#              #
-#    Updated: 2026/01/16 17:36:57 by opernod          ###   ########lyon.fr    #
+#    Updated: 2026/01/19 11:17:00 by lgoderne         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		= push_swap
 BONUS		= checker
 
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -g
+CFLAGS		= -Wall -Wextra -Werror -MMD -MP -g
 
 LIBFT_DIR	= libft
 LIBFT		= $(LIBFT_DIR)/libft.a
@@ -31,7 +31,7 @@ PRINTF_OBJS	= $(PRINTF_SRCS:.c=.o)
 
 SRC_DIR		= sources
 OP_DIR		= operations
-CHECKER_DIR	= checker
+CHECKER_DIR	= checker_bonus
 CHECKER_SRC	= $(CHECKER_DIR)/sources
 CHECKER_OP	= $(CHECKER_DIR)/sources/operations
 
@@ -70,10 +70,12 @@ PS_SRCS		= $(addprefix $(SRC_DIR)/, $(PS_SRC_FILES)) \
 			  $(addprefix $(SRC_DIR)/$(OP_DIR)/, $(PS_OP_FILES))
 
 CHECKER_SRCS = $(addprefix $(CHECKER_SRC)/, $(CHECKER_SRC_FILES)) \
-			   $(addprefix $(CHECKER_OP)/, $(PS_OP_FILES))
+			   $(addprefix $(SRC_DIR)/$(OP_DIR)/, $(PS_OP_FILES))
 
 PS_OBJS		= $(PS_SRCS:.c=.o)
+PS_D		= $(PS_OBJS:.o=.d)
 CHECKER_OBJS = $(CHECKER_SRCS:.c=.o)
+CHECKER_D = $(CHECKER_OBJS:.o=.d)
 
 all: $(NAME)
 
@@ -98,10 +100,10 @@ $(PRINTF_DIR)/sources/%.o : $(PRINTF_DIR)/sources/%.c $(PRINTF_DIR)/includes/ft_
 	@$(CC) $(PRINTF_FLAGS) $(PRINTF_INCLUDES) -c $< -o $@
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -I includes -I $(LIBFT_DIR) -I $(PRINTF_DIR)/includes -c $< -o $@
+	$(CC) $(CFLAGS) -I includes -I $(LIBFT_DIR) -I $(PRINTF_DIR)/includes -c $< -o $@
 
 clean:
-	@$(RM) $(PS_OBJS) $(CHECKER_OBJS) $(PRINTF_OBJS)
+	@$(RM) $(PS_OBJS) $(CHECKER_OBJS) $(PRINTF_OBJS) $(CHECKER_D) $(PS_D)
 	@$(MAKE) -C $(LIBFT_DIR) clean --no-print-directory
 	@echo "✓ Objects cleaned"
 
@@ -114,4 +116,6 @@ re: fclean all
 
 FORCE:
 
-.PHONY: all bonus clean fclean re 
+.PHONY: all bonus clean fclean re FORCE
+
+-include $(CHECKER_D) $(PS_D)
