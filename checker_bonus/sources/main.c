@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 20:20:38 by lgoderne          #+#    #+#             */
-/*   Updated: 2026/01/16 16:59:23 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/20 12:52:27 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,12 @@ static int	input_and_check(t_stack *stack, char **final_argv, char	*joined)
 	}
 	if (get_input(stack) == ERROR)
 	{
-		free_all(stack, 1, final_argv, joined);
+		free_all(stack, 0, final_argv, joined);
 		return (ERROR);
 	}
 	if (check_is_stack_sorted_stackb_empty(stack) != 0)
 	{
-		free_all(stack, 1, final_argv, joined);
+		free_all(stack, 0, final_argv, joined);
 		return (ERROR);
 	}
 	else
