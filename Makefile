@@ -6,7 +6,7 @@
 #    By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/17 15:35:41 by opernod           #+#    #+#              #
-#    Updated: 2026/01/19 13:08:25 by opernod          ###   ########lyon.fr    #
+#    Updated: 2026/01/20 13:02:24 by opernod          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,11 +81,11 @@ all: $(NAME)
 
 bonus: $(BONUS)
 
-$(NAME): $(PS_OBJS) $(LIBFT) $(PRINTF) Makefile
+$(NAME): $(PS_OBJS) $(LIBFT) $(PRINTF)
 	@$(CC) $(CFLAGS) -I includes -I $(LIBFT_DIR) -I $(PRINTF_DIR)/includes $(PS_OBJS) $(LIBFT) $(PRINTF) -o $(NAME)
 	@echo "✓ push_swap created"
 
-$(BONUS): $(CHECKER_OBJS) $(LIBFT) $(PRINTF) Makefiles
+$(BONUS): $(CHECKER_OBJS) $(LIBFT) $(PRINTF)
 	@$(CC) $(CFLAGS) -I $(CHECKER_DIR)/includes -I $(LIBFT_DIR) -I $(PRINTF_DIR)/includes $(CHECKER_OBJS) $(LIBFT) $(PRINTF) -o $(BONUS)
 	@echo "✓ checker created"
 
@@ -99,7 +99,7 @@ $(PRINTF): $(PRINTF_OBJS)
 $(PRINTF_DIR)/sources/%.o : $(PRINTF_DIR)/sources/%.c $(PRINTF_DIR)/includes/ft_printf.h
 	@$(CC) $(PRINTF_FLAGS) $(PRINTF_INCLUDES) -c $< -o $@
 
-%.o: %.c
+%.o: %.c Makefile
 	@echo "Compiling $<..."
 	@$(CC) $(CFLAGS) -I includes -I $(LIBFT_DIR) -I $(PRINTF_DIR)/includes -c $< -o $@
 
