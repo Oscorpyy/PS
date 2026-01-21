@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 15:35:00 by opernod           #+#    #+#             */
-/*   Updated: 2026/01/19 12:31:18 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/01/21 14:39:09 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int	main(int argc, char **argv)
 	}
 	new_argc = argc_updated(final_argv);
 	init_all(&stack, final_argv, new_argc);
-	if (!stack.stack_a || !stack.stack_b 
+	if (!stack.stack_a || !stack.stack_b
 		|| only_one(&stack) != 0 || mode(argv, &stack) == 1)
 	{
 		free_all(&stack, 1, final_argv, joined);
