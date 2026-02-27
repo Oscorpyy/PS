@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_everything.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:35:58 by opernod           #+#    #+#             */
-/*   Updated: 2026/01/16 11:33:02 by lgoderne         ###   ########lyon.fr   */
+/*   Updated: 2026/02/27 10:58:53 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	free_argv(char **new_argv, int argc)
 	free(new_argv);
 }
 
-void	free_all(t_stack *stack, int i, char **final_argv, char	*joined)
+int	free_all(t_stack *stack, int i, char **final_argv, char	*joined)
 {
 	if (i == 1)
 		ft_printf("Error\n", 2);
@@ -38,4 +38,7 @@ void	free_all(t_stack *stack, int i, char **final_argv, char	*joined)
 		free_argv(final_argv, argc_updated(final_argv));
 	if (joined)
 		free(joined);
+	if (i == 1)
+		return (1);
+	return (0);
 }

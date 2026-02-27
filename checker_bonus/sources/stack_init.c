@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgoderne <lgoderne@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 20:24:26 by lgoderne          #+#    #+#             */
-/*   Updated: 2026/01/16 12:03:33 by lgoderne         ###   ########lyon.fr   */
+/*   Updated: 2026/02/27 09:37:55 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,4 +113,5 @@ void	init_all(t_stack *stack, char **argv, int argc)
 	stack->sb = 0;
 	stack->ss = 0;
 	stack->total = 0;
+	stack->print = 0;
 }

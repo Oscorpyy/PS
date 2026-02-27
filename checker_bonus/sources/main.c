@@ -6,7 +6,7 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 20:20:38 by lgoderne          #+#    #+#             */
-/*   Updated: 2026/01/20 12:52:27 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/02/27 10:59:57 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ static int	check_argument(int argc, char **argv)
 		return (ERROR);
 	if (is_args_good(argv) == ERROR)
 	{
-		ft_printf("Error\n", 2);
 		return (ERROR);
 	}
 	return (0);
@@ -97,24 +96,19 @@ int	main(int argc, char **argv)
 	char	**final_argv;
 	char	*joined;
 
+	if (argc < 2)
+		return (0);
 	joined = strjoin_all(argc, argv, " ");
 	if (!joined)
 		return (1);
 	final_argv = ft_split(joined, ' ');
 	if (!final_argv)
-	{
-		free_all(&stack, 1, final_argv, joined);
-		return (1);
-	}
-	init_all(&stack, final_argv, argc);
+		return (free_all(&stack, 1, final_argv, joined));
+	init_all(&stack, final_argv, argc_updated(final_argv));
 	if (!stack.stack_a || !stack.stack_b
 		|| check_argument(argc, final_argv) == ERROR)
-	{
-		free_all(&stack, 1, final_argv, joined);
-		return (1);
-	}
+		return (free_all(&stack, 1, final_argv, joined));
 	if (input_and_check(&stack, final_argv, joined) != 0)
 		return (1);
-	free_all(&stack, 0, final_argv, joined);
-	return (0);
+	return (free_all(&stack, 0, final_argv, joined));
 }

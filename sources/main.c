@@ -6,12 +6,12 @@
 /*   By: opernod <opernod@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 15:35:00 by opernod           #+#    #+#             */
-/*   Updated: 2026/01/22 12:28:10 by opernod          ###   ########lyon.fr   */
+/*   Updated: 2026/02/27 10:12:14 by opernod          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
-#include "../../libft/libft.h"
+#include "../libft/libft.h"
 
 static void	init_all(t_stack *stack, char **argv, int argc)
 {
